@@ -67,7 +67,7 @@ const showingNavigationDropdown = ref(false);
                                 </svg>
                             </button>
                         </div>
-                    </div>
+                    </div> 
                 </div>
 
                 <!-- Responsive Navigation Menu -->

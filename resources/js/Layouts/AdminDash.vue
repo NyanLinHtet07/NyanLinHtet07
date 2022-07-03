@@ -8,16 +8,16 @@ import BreezeResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
 const showingNavigationDropdown = ref(false);
+const showSidebar = ref(false);
 </script>
 
 <template>
    
-        <div class=" relative h-screen flex bg-gradient-to-t from-slate-400/70 to-white">
+        <div class=" relative h-screen flex bg-gradient-to-t from-sky-300/70 to-white">
 
-                 <nav v-show="showSidebar" class=" w-64 h-screen bg-white bg-opacity-60 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6
-                                             absolute inset-0 left-0 transform -translate-x-full transition duration-200 ease-in-out
-                                             md:relative md:-translate-x-0"
-                                    :class="{'relative -translate-x-0  transition duration-200 ease-in-out': showSidebar}">
+                 <nav class=" w-64 h-screen bg-white bg-opacity-80 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6
+                                             absolute inset-0 left-0 transform -translate-x-full transition duration-400 ease-in-out block"
+                                    :class="{'relative -translate-x-0 transition duration-500':showSidebar}">
 
                             <!-- Logo -->
                             <div class=" text-center items-center mt-4 text-2xl font-bold text-gray-700">
@@ -34,14 +34,32 @@ const showingNavigationDropdown = ref(false);
                             </div>
                        
               
-                    <div class="pt-2 pb-3 space-y-1">
+                    <div class="px-2 space-y-1">
                         <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </BreezeResponsiveNavLink>
                     </div>
 
+                     <div class="px-2 space-y-1">
+                        <BreezeResponsiveNavLink :href="route('tag.index')" :active="route().current('tag.index')">
+                            Tags
+                        </BreezeResponsiveNavLink>
+                    </div>
+
+                     <div class="px-2 space-y-1">
+                        <BreezeResponsiveNavLink :href="route('project.index')" :active="route().current('project.index')">
+                            Projects
+                        </BreezeResponsiveNavLink>
+                    </div>
+
+                     <div class="px-2 space-y-1">
+                        <BreezeResponsiveNavLink :href="route('blog.index')" :active="route().current('blog.index')">
+                            Blogs
+                        </BreezeResponsiveNavLink>
+                    </div>
+
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div class="pt-3 pb-1 border-t border-gray-200">
                         <div class="mt-3 space-y-1">
                             <BreezeResponsiveNavLink :href="route('logout')" method="post" as="button">
                                 Log Out
@@ -58,10 +76,10 @@ const showingNavigationDropdown = ref(false);
 
            <div class=" px-3 flex-1">
                  <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class=" flex justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        <button  @click="showSidebar ? closeMenu() : openMenu()" class=" hover:bg-slate-200/10 hover:rounded-full hover:drop-shadow-lg hover:transition hover:delay-200 p-2">  <MenuIcon/> </button>
-                          <!-- <button  @click=" showSidebar = !showSidebar" class=" hover:bg-slate-200/10 hover:rounded-full hover:drop-shadow-lg hover:transition hover:delay-200 p-2">  <MenuIcon/> </button> -->
+            <header class="bg-white bg-opacity-50 drop-shadow-xl backdrop-blur-md shadow rounded-2xl mt-3" v-if="$slots.header">
+                <div class=" flex justify-between max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">
+                        <!-- <button  @click="showSidebar ? closeMenu() : openMenu()" class=" hover:bg-slate-200/10 hover:rounded-full hover:drop-shadow-lg hover:transition hover:delay-200 p-2">  <MenuIcon/> </button> -->
+                          <button  @click=" showSidebar = !showSidebar" class=" hover:bg-slate-200/10 hover:rounded-full hover:drop-shadow-lg hover:transition hover:delay-200 p-2">  <MenuIcon/> </button>
                     <slot name="header" />
                 </div>
             </header>
@@ -84,7 +102,7 @@ import CloseIcon from 'vue-material-design-icons/CloseOutline.vue'
 export default {
     data(){
         return{
-              showSidebar:false
+              //showSidebar:false
         }
     },
 
@@ -110,3 +128,5 @@ export default {
     
 }
 </script>
+
+
