@@ -21,132 +21,42 @@
         <table class="table-auto border-collapse:separate rounded-xl border-0 border-accent w-5/6 bg-white bg-opacity-40 backdrop-blur-md mx-auto drop-shadow-sm shadow-2xl shadow-sky-200">
             <thead class=" border-y border-gray-300/30">
                 <tr>
-                <th class=" py-2 font-thin">Song</th>
-                <th class="py-2 font-thin">Artist</th>
-                <th class=" py-2 font-thin">Year</th>
+                <th class=" py-2 font-thin">No</th>
+                <th class="py-2 font-thin">Icon</th>
+                <th class=" py-2 font-thin">Name</th>
                 <th class="py-2 font-thin">Edit</th>
                 <th class=" py-2 font-thin">Delete</th>
                 </tr>
             </thead>
             <tbody class=" bg-white bg-opacity-60 backdrop-blur-md ">
-                <tr class=" border-y border-gray-200/50 text-sm">
-                <td class=" py-2 pl-3">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                <td class=" py-2 pl-3">Malcolm Lockyer</td>
-                <td class=" py-2 pl-3">1961</td>
+                <tr v-for="(tag,index) in tags" :key="index" class=" border-y border-gray-200/50 text-sm">
+                <td class=" py-2 pl-3 text-center">{{index + 1}}</td>
+                <td class=" py-2 pl-3 text-center">
+                    <img :src="'/assets/empty.png'" v-if ="tag.icon == null" alt="" class="object-scale-down h-12 w-12 p-1 rounded mx-auto">
+                    <img :src="'/upload/tag/'+tag.icon" v-else alt="" srcset="" class="object-scale-down h-12 w-12 p-1 rounded-md mx-auto">
+
+                </td>
+                <td class=" py-2 pl-3 text-center">{{tag.name}}</td>
                  <td class=" py-2 text-center">
-                     <button  @click="openModal()" class="p-2 text-sm rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
+                     <button  @click="editTag(tag)" class="p-2 text-sm rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
                                   <EditIcon/> 
                     </button> 
                     </td>
                   <td class=" py-2 text-center"> 
-                      <button @click="openModal()"  class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
+                      <button @click="deleteTag(tag.id)" class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
                                   <DeleteIcon/>
                     </button>
                     </td>
                 </tr>
-                <tr  class=" border-y border-gray-200/50">
-                <td class=" py-2 pl-3">Witchy Woman</td>
-                <td class=" py-2 pl-3">The Eagles</td>
-                <td class=" py-2 pl-3">1972</td>
-                 <td class=" py-2 text-center">
-                     <button  @click="openModal()"  class="p-2 rounded-full bg-emerald-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner text-xs
-                                  transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
-                    </button> 
-                    </td>
-                  <td class=" py-2 text-center"> 
-                      <button  class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-sm text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner
-                                  transition ease-in-out duration-300"> 
-                                  <DeleteIcon/>
-                    </button>
-                    </td>
-                </tr>
-                <tr  class=" border-y border-gray-200/50">
-                <td class=" py-2 pl-3">Shining Star</td>
-                <td class=" py-2 pl-3">Earth, Wind, and Fire</td>
-                <td class=" py-2 pl-3">1975</td>
-                 <td class=" py-2 text-center">
-                     <button  class="p-2 rounded-full bg-emerald-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner text-xs
-                                  transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
-                    </button> 
-                    </td>
-                  <td class=" py-2 text-center"> 
-                      <button  @click="openModal()"  class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-sm text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner
-                                  transition ease-in-out duration-300"> 
-                                  <DeleteIcon/>
-                    </button>
-                    </td>
-                </tr>
-                <tr  class=" border-y border-gray-200/50">
-                <td class=" py-2 pl-3">Shining Star</td>
-                <td class=" py-2 pl-3">Earth, Wind, and Fire</td>
-                <td class=" py-2 pl-3">1975</td>
-                 <td class=" py-2 text-center">
-                     <button  @click="openModal()"  class="p-2 rounded-full bg-emerald-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner text-xs
-                                  transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
-                    </button> 
-                    </td>
-                  <td class=" py-2 text-center"> 
-                      <button  class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-sm text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner
-                                  transition ease-in-out duration-300"> 
-                                  <DeleteIcon/>
-                    </button>
-                    </td>
-                </tr>
-                <tr  class=" border-y border-gray-200/50">
-                <td class=" py-2 pl-3">Shining Star</td>
-                <td class=" py-2 pl-3">Earth, Wind, and Fire</td>
-                <td class=" py-2 pl-3">1975</td>
-                 <td class=" py-2 text-center">
-                     <button  @click="openModal()"  class="p-2 rounded-full bg-emerald-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner text-xs
-                                  transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
-                    </button> 
-                    </td>
-                  <td class=" py-2 text-center"> 
-                      <button   class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-sm text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner
-                                  transition ease-in-out duration-300"> 
-                                  <DeleteIcon/>
-                    </button>
-                    </td>
-                </tr>
-                <tr  class=" border-y border-gray-200/50">
-                <td class=" py-2 pl-3">Shining Star</td>
-                <td class=" py-2 pl-3">Earth, Wind, and Fire</td>
-                <td class=" py-2 pl-3">1975</td>
-                 <td class=" py-2 text-center">
-                     <button  @click="openModal()"  class="p-2 rounded-full bg-emerald-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner text-xs
-                                  transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
-                    </button> 
-                    </td>
-                  <td class=" py-2 text-center"> 
-                      <button  class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-sky-200 decoration-slate-200 text-sm text-white 
-                                  hover:drop-shadow-sm hover:opacity-70 hover:shadow-inner
-                                  transition ease-in-out duration-300"> 
-                                  <DeleteIcon/>
-                    </button>
-                    </td>
-                </tr>
+              
             </tbody>
         </table>
 
-        <div class=" mt-14 text-center">
+        <div class=" text-center fixed bottom-5 left-0 right-0">
                 <Paginate />
         </div>
 
@@ -160,12 +70,12 @@
 
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
                         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                          <form>
+                          <form @submit.prevent="updateTag(form)">
                           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div class="">
                                   <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
-                                      <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                      <input type="text" v-model="form.name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
                                    
                                   </div>
                             </div>
@@ -209,7 +119,7 @@
 
                                    <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">File</label>
-                                      <input type="file" ref="'icon" @change = "onChangeFileUpload()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1">
+                                      <input type="file" ref="icon" @change = "onChangeFileUpload()" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1">
                                    
                                   </div>
                             </div>
@@ -258,6 +168,8 @@
                 modalOpen: false,
                 uploadOpen: false,
 
+                tags:[],
+
             form : {
                 name: null,
                 icon: null,
@@ -266,6 +178,21 @@
         }, 
 
         methods: {
+
+            reset(){
+                this.form = {
+                    name:null,
+                    icon:null,
+                }
+            },
+
+            async getData(){
+                await axios.get('/api/tag')
+                            .then( res => {
+                                this.tags = res.data.tags;
+                            })
+            },
+
             onChangeFileUpload(){
                 this.form.icon = this.$refs.icon.files[0];
             },
@@ -283,10 +210,31 @@
                     },
                 }).then( res =>{
                     this.closeUpload();
+                    this.reset();
                     window.alert('Successfully Uploaded');
+                    this.getData();
                     console.log(res);
                 });
                
+            },
+
+            editTag(tag){
+                this.form = Object.assign({}, tag)
+                this.openModal();
+
+            },
+
+            async updateTag(form){
+                await axios.put(`/api/tag/`+form.id , form);
+                this.reset();
+                this.getData();
+                this.closeModal();
+            },
+
+            async deleteTag(id){
+                if(! confirm("Are You Sure to Delete")) return;
+                await axios.delete(`/api/tag/${id}`);
+                this.getData();
             },
 
             openModal(){
@@ -306,6 +254,10 @@
         },
         components:{
             BreezeAuthenticatedLayout, Head , PlusIcon , EditIcon, DeleteIcon , Paginate
+        },
+
+        created() {
+            this.getData();
         },
 
     }

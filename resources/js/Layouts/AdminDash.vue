@@ -15,7 +15,7 @@ const showSidebar = ref(false);
    
         <div class=" relative h-screen flex bg-gradient-to-t from-sky-300/70 to-white">
 
-                 <nav class=" w-64 h-screen bg-white bg-opacity-80 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6
+                 <nav class=" w-64 h-full bg-white bg-opacity-80 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6
                                              absolute inset-0 left-0 transform -translate-x-full transition duration-400 ease-in-out block"
                                     :class="{'relative -translate-x-0 transition duration-500':showSidebar}">
 
@@ -74,7 +74,7 @@ const showSidebar = ref(false);
            
 
 
-           <div class=" px-3 flex-1">
+           <div class=" px-3 flex-1 min-h-screen">
                  <!-- Page Heading -->
             <header class="bg-white bg-opacity-50 drop-shadow-xl backdrop-blur-md shadow rounded-2xl mt-3" v-if="$slots.header">
                 <div class=" flex justify-between max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">

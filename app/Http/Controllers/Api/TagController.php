@@ -15,7 +15,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+                //->orderBy('id', 'desc');
+        return response() -> json(['tags' => $tags]);
     }
 
     /**
@@ -46,9 +48,7 @@ class TagController extends Controller
             'icon' => $filename,
         ]);
 
-        return response()->json([
-            'message' => 'New post created'
-        ]);
+        return $tag;
     }
 
     /**
@@ -71,7 +71,10 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag -> update($request -> only('name'));
+
+        return $tag;
     }
 
     /**
@@ -82,6 +85,8 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag -> delete();
+
     }
 }
