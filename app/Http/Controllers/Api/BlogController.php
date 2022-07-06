@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tag;
+use App\Models\Blog;
 
-class TagController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::orderBy('id', 'desc')
+        $blogs = Blog::orderBy('id', 'desc')
                     ->get();
-        return response() -> json(['tags' => $tags]);
+            return response() -> json(['blogs' => $blogs]);
     }
 
     /**
@@ -28,27 +28,7 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-            $request -> validate([
-                'name' => 'required',
-                'icon' => 'nullable',
-            ]);
-
-        if($request -> hasFile('icon')){
-            $file = $request -> file('icon');
-            $filename = uniqid().'_'.$file -> getClientOriginalName();
-            $file -> move(public_path().'/upload/tag/', $filename);
-        }
-
-        else {
-            $filename = null;
-        }
-
-        $tag = Tag::create([
-            'name' => $request -> name,
-            'icon' => $filename,
-        ]);
-
-        return $tag;
+        //
     }
 
     /**
@@ -71,10 +51,7 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $tag = Tag::find($id);
-        $tag -> update($request -> only('name'));
-
-        return $tag;
+        //
     }
 
     /**
@@ -85,8 +62,6 @@ class TagController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Tag::find($id);
-        $tag -> delete();
-
+        //
     }
 }

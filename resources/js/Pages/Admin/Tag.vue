@@ -1,5 +1,5 @@
 <template>
-    <Head title="Dashboard" />
+   
 
     <BreezeAuthenticatedLayout>
         <template #header>
@@ -56,9 +56,10 @@
             </tbody>
         </table>
 
-        <div class=" text-center fixed bottom-5 left-0 right-0">
-                <Paginate />
-        </div>
+        <!-- <div class=" text-center bottom-5 left-0 right-0">
+                <Pagination :data="tags" align="center" @pagination-change-page = "getData" class="mx-2 rounded "> 
+                </Pagination>
+        </div> -->
 
 
         <!-------------------- modal ----------------------->
@@ -148,11 +149,12 @@
 
 <script>
     import BreezeAuthenticatedLayout from '@/Layouts/AdminDash.vue';
-    import { Head } from '@inertiajs/inertia-vue3';
+    //import { Head } from '@inertiajs/inertia-vue3';
     import PlusIcon from 'vue-material-design-icons/Plus.vue'
     import EditIcon from 'vue-material-design-icons/BookEdit.vue'
     import DeleteIcon from 'vue-material-design-icons/Delete.vue'
-    import Paginate from '../../Components/Pagination.vue'
+    // import Paginate from '../../Components/Pagination.vue'
+    
 
     import axios from 'axios'
 
@@ -186,8 +188,11 @@
                 }
             },
 
-            async getData(){
-                await axios.get('/api/tag')
+            async getData(page){
+                if( typeof page === "undefined"){
+                    page = 1;
+                }
+                await axios.get('/api/tag?page=' + page)
                             .then( res => {
                                 this.tags = res.data.tags;
                             })
@@ -253,10 +258,11 @@
             }
         },
         components:{
-            BreezeAuthenticatedLayout, Head , PlusIcon , EditIcon, DeleteIcon , Paginate
+            BreezeAuthenticatedLayout, PlusIcon , EditIcon, DeleteIcon ,
+            // 'Pagination': LaravelVuePagination
         },
 
-        created() {
+        mounted() {
             this.getData();
         },
 

@@ -20,6 +20,7 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "laravel-vue-pagination": "^3.0.0",
         "vue-material-design-icons": "^5.0.0"
     }
 }
