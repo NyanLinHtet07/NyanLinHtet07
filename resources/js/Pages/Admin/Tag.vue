@@ -188,11 +188,9 @@
                 }
             },
 
-            async getData(page){
-                if( typeof page === "undefined"){
-                    page = 1;
-                }
-                await axios.get('/api/tag?page=' + page)
+            async getData(){
+               
+                await axios.get('/api/tag')
                             .then( res => {
                                 this.tags = res.data.tags;
                             })
@@ -262,7 +260,7 @@
             // 'Pagination': LaravelVuePagination
         },
 
-        mounted() {
+        mounted() { 
             this.getData();
         },
 
