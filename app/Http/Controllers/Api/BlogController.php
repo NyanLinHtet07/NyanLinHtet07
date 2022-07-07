@@ -40,7 +40,7 @@ class BlogController extends Controller
         if($request -> hasFile('image')){
             $file = $request -> file('image');
             $filename = uniqid().'_'.$file -> getClientOriginalName();
-            $file -> move(public_path().'upload/blog/', $filename);
+            $file -> move(public_path().'/upload/blog/', $filename);
         }
         else{
             $filename = null;

@@ -248,6 +248,7 @@
                 this.modalOpen = false;
             },
             openUpload(){
+                this.reset();
                 this.uploadOpen = true;
             },
 

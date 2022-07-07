@@ -25,9 +25,9 @@
                 <th class="py-2 font-thin">Img</th>
                 <th class=" py-2 font-thin">Title</th>
                 <th class="py-2 font-thin"> Text</th>
-                <!-- <th class=" py-2 font-thin">
+                <th class=" py-2 font-thin">
                     Tags
-                </th> -->
+                </th>
                 <th class="py-2 font-thin">Edit</th>
                 <th class=" py-2 font-thin">Delete</th>
                 </tr>
@@ -42,16 +42,24 @@
                 </td>
                 <td class=" py-2 pl-3 text-center">{{blog.title}}</td>
                 <td class=" py-2 pl-3 text-center text-sm">{{blog.text}}</td>
-                <!-- <td class="py-2 pl-3 text-thin">{{ JSON.parse(blog.tag_id)}}</td> -->
+                <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">
+                    <div v-for="(t_id, index) in JSON.parse(blog.tag_id)" :key="index"> 
+                       <div v-for="tag in tags" :key="tag.id">
+                            <div v-if=" tag.id == t_id" class=" text-xs mx-2">
+                               <img :src="'/upload/tag/'+tag.icon"  class=" object-scale-down h-6 w-6"> 
+                            </div>
+                       </div> 
+                    </div>
+                </td>
                  <td class=" py-2 text-center">
-                     <button  @click="editTag(tag)" class="p-2 text-sm rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
+                     <button  @click="editBlog(blog)" class="p-2 text-xs rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
-                                  <EditIcon/> 
+                                  <EditIcon class=" w-4"/> 
                     </button> 
                     </td>
                   <td class=" py-2 text-center"> 
-                      <button @click="deleteTag(tag.id)" class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
+                      <button @click="deleteBlog(blog.id)" class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
                                   <DeleteIcon/>
@@ -77,12 +85,17 @@
 
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
                         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                          <form @submit.prevent="updateTag(form)">
+                          <form @submit.prevent="updateBlog(form)">
                           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div class="">
                                   <div class="mb-4">
-                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
-                                      <input type="text" v-model="form.name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                                      <input type="text" v-model="form.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                   
+                                  </div>
+                                  <div class="mb-4">
+                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Text</label>
+                                      <textarea  class=" w-32" v-model=" form.text" placeholder="text"></textarea>
                                    
                                   </div>
                             </div>
@@ -125,7 +138,7 @@
                                   </div>
                                   <div>
                                     <select name="" id="" v-model="form.tag_id" class=" px-3 py-2 rounded" multiple>
-                                    <option selected> Select Tag </option>
+                                    <!-- <option selected > Select Tag </option> -->
                                     <option v-for="tag in tags" :key="tag.id" :value="tag.id"> {{tag.name}}</option>
                                 </select>
                                   </div>
@@ -137,7 +150,7 @@
                                   </div>
 
                                   <div class=" mb-4">
-                                        <textarea  class=" w-32" v-model=" form.text"> Text</textarea>
+                                        <textarea  class=" w-32" v-model=" form.text" placeholder="text"></textarea>
                                   </div>
                             </div>
                           </div>
@@ -190,8 +203,10 @@
                 blogs:[],
 
             form : {
-                name: null,
-                icon: null,
+                title:null,
+                image:null,
+                text:null,
+                tag_id:null
             }
             }
         }, 
@@ -216,7 +231,7 @@
             },
 
             onChangeFileUpload(){
-                this.form.icon = this.$refs.icon.files[0];
+                this.form.image = this.$refs.image.files[0];
             },
 
             async submit(){
@@ -242,22 +257,22 @@
                
             },
 
-            editTag(tag){
-                this.form = Object.assign({}, tag)
+            editBlog(blog){
+                this.form = Object.assign({}, blog)
                 this.openModal();
 
             },
 
-            async updateTag(form){
-                await axios.put(`/api/tag/`+form.id , form);
+            async updateBlog(form){
+                await axios.put(`/api/blog/`+form.id , form);
                 this.reset();
                 this.getData();
                 this.closeModal();
             },
 
-            async deleteTag(id){
+            async deleteBlog(id){
                 if(! confirm("Are You Sure to Delete")) return;
-                await axios.delete(`/api/tag/${id}`);
+                await axios.delete(`/api/blog/${id}`);
                 this.getData();
             },
 
@@ -269,6 +284,7 @@
                 this.modalOpen = false;
             },
             openUpload(){
+                this.reset();
                 this.uploadOpen = true;
             },
 
