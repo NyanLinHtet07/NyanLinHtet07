@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('url') -> nullable();
             $table->text('description') -> nullable();
             $table -> string('tag_id');
+            $table->string('list')->nullable();
             $table -> date('project_date') -> nullable();
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

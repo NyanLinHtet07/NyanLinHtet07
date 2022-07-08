@@ -137,9 +137,9 @@
                                    
                                   </div>
                                   <div>
-                                    <select name="" id="" v-model="form.tag_id" class=" px-3 py-2 rounded" multiple>
+                                    <select name="" id="" v-model="form.tag_id" class=" px-3 py-2 rounded-lg h-24 w-48 border-none bg-white" multiple>
                                     <!-- <option selected > Select Tag </option> -->
-                                    <option v-for="tag in tags" :key="tag.id" :value="tag.id"> {{tag.name}}</option>
+                                    <option v-for="tag in tags" :key="tag.id" :value="tag.id" class=" py-1 px-2 my-1 rounded-lg bg-slate-50"> {{tag.name}}</option>
                                 </select>
                                   </div>
 
