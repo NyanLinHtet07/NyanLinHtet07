@@ -18,7 +18,7 @@
         </div>
 
         
-        <!-- <table class="table-auto border-collapse:separate rounded-xl border-0 border-accent w-5/6 bg-white bg-opacity-40 backdrop-blur-md mx-auto drop-shadow-sm shadow-2xl shadow-sky-200">
+        <table class="table-auto border-collapse:separate rounded-xl border-0 border-accent w-5/6 bg-white bg-opacity-40 backdrop-blur-md mx-auto drop-shadow-sm shadow-2xl shadow-sky-200">
             <thead class=" border-y border-gray-300/30">
                 <tr>
                 <th class=" py-2 font-thin">No</th>
@@ -33,17 +33,20 @@
                 </tr>
             </thead>
             <tbody class=" bg-white bg-opacity-60 backdrop-blur-md ">
-                <tr v-for="(blog,index) in blogs" :key="index" class=" border-y border-gray-200/50 text-sm">
+                <tr v-for="(p,index) in projects" :key="index" class=" border-y border-gray-200/50 text-sm">
                 <td class=" py-2 pl-3 text-center">{{index + 1}}</td>
                 <td class=" py-2 pl-3 text-center">
-                    <img :src="'/assets/empty.png'" v-if ="blog.image == null" alt="" class="object-scale-down h-12 w-12 p-1 rounded mx-auto">
-                    <img :src="'/upload/blog/'+blog.image" v-else alt="" srcset="" class="object-scale-down h-12 w-12 p-1 rounded-md mx-auto">
+                    <img :src="'/assets/empty.png'" v-if ="p.image == null" alt="" class="object-scale-down h-12 w-12 p-1 rounded mx-auto">
+                    <div v-else>
+                         <img v-for="(i,index) in p.image" :key="index" :src="'/upload/project/'+i" alt="" srcset="" class="object-scale-down h-12 w-12 p-1 rounded-md mx-auto"/>
+                    </div>
+                   
 
                 </td>
-                <td class=" py-2 pl-3 text-center">{{blog.title}}</td>
-                <td class=" py-2 pl-3 text-center text-sm">{{blog.text}}</td>
+                <td class=" py-2 pl-3 text-center">{{p.title}}</td>
+                <!-- <td class=" py-2 pl-3 text-center text-sm">{{blog.text}}</td> -->
                 <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">
-                    <div v-for="(t_id, index) in JSON.parse(blog.tag_id)" :key="index"> 
+                    <div v-for="(t_id, index) in JSON.parse(p.tag_id)" :key="index"> 
                        <div v-for="tag in tags" :key="tag.id">
                             <div v-if=" tag.id == t_id" class=" text-xs mx-2">
                                <img :src="'/upload/tag/'+tag.icon"  class=" object-scale-down h-6 w-6"> 
@@ -51,8 +54,15 @@
                        </div> 
                     </div>
                 </td>
+
+                 <td class="py-2 pl-3 text-thin text-center justify-center mt-3">
+                    <div v-for="(l, index) in JSON.parse(p.list)" :key="index"> 
+                       {{l.name}}
+                    </div>
+                </td>
+
                  <td class=" py-2 text-center">
-                     <button  @click="editBlog(blog)" class="p-2 text-xs rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
+                     <button  @click="editProject(p)" class="p-2 text-xs rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
                                   <EditIcon class=" w-4"/> 
@@ -68,7 +78,7 @@
                 </tr>
               
             </tbody>
-        </table> -->
+        </table>
 
         <!-- <div class=" text-center bottom-5 left-0 right-0">
                 <Pagination :data="tags" align="center" @pagination-change-page = "getData" class="mx-2 rounded "> 
@@ -133,11 +143,11 @@
                             <div class="">
                                   <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
-                                      <input type="text" v-model="form.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                      <input type="text" v-model="project.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
                                    
                                   </div>
                                   <div>
-                                    <select name="" id="" v-model="form.tag_id" class=" px-3 py-2 rounded-lg h-24 w-48 border-none bg-white" multiple>
+                                    <select name="" id="" v-model="project.tag_id" class=" px-3 py-2 rounded-lg h-24 w-48 border-none bg-white" multiple>
                                     <!-- <option selected > Select Tag </option> -->
                                     <option v-for="tag in tags" :key="tag.id" :value="tag.id" class=" py-1 px-2 my-1 rounded-lg bg-slate-50"> {{tag.name}}</option>
                                 </select>
@@ -151,33 +161,50 @@
 
                                   <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Url</label>
-                                      <input type="text" v-model="form.url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Url">
+                                      <input type="text" v-model="project.url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Url">
                                    
                                   </div>
 
                                   <div class=" mb-4">
                                          <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Project Date</label>
-                                      <input type="datetime" v-model="form.url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1">
+                                      <input type="date" v-model="project.project_date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1">
                                   </div>
 
                                   <div>
-                                    <h5> List </h5>
-                                    <div>
-                                        <input type="text" name="" v-model="list.name">
-                                    </div>
-                                    <div>
-                                        <button class=" px-2 py-1 rounded-full bg-indigo-500" @click="addList()"> Add</button>
-                                    </div>
+                                   <h3> Lists </h3>
+                                    <form @submit.prevent="addList" class=" flex justify-between">
+                                        
+                                        <div>
+                                            <input type="text" name="" v-model="l.name">
+                                        </div>
+                                        <div>
+                                            <button class=" px-2 py-1 rounded-lg bg-sky-500" type="submit"> Add</button>
+                                        </div>
+                                    </form>
 
                                     <div>
-                                        <ul>
-                                        <li v-for="(l,index) in form.list" :key="index"> {{ l.name}}</li>
-                                        </ul>
+                                        <table class=" w-full mx-2 text-center">
+                                            <thead class=" bg-sky-50">
+                                                <tr>
+                                                <th> No </th>
+                                                <th> List </th>
+                                                <th> Delete </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="(l,index) in project.list" :key="index">
+                                                    <td>{{index + 1}}</td>
+                                                    <td> {{l.name}} </td>
+                                                    <td> <button @click="deleteList" class=" px-2 py-1 rounded-lg bg-red-700"> Delete</button> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                      
                                     </div>
                                   </div>
 
-                                  <div class=" mb-4">
-                                        <textarea  class=" w-32" v-model=" form.descripton" placeholder="text"></textarea>
+                                  <div class=" my-4">
+                                        <textarea  class=" w-full h-16" v-model=" project.descripton" placeholder="text"></textarea>
                                   </div>
                             </div>
                           </div>
@@ -227,9 +254,9 @@
                 uploadOpen: false,
 
                 tags:[],
-                blogs:[],
+                projects:[],
 
-            form : {
+            project : {
                 title:null,
                 images:[],
                 url:null,
@@ -239,7 +266,7 @@
                 project_date: null,
             },
 
-            list:{
+            l:{
                 name:null
             }
 
@@ -249,59 +276,64 @@
         methods: {
 
             reset(){
-                this.form = {
+                this.project = {
                     title:null,
                     images:[],
-                    text:null,
-                    tag_id:null
+                    url:null,
+                    descripton:null,
+                    tag_id:null,
+                    list:[],
+                    project_date: null,
                 }
             },
 
             addList(){
                 const data = {
-                    name: this.list.name
+                    name: this.l.name
                 }
 
-                this.form.list.push( data);
-                this.list=[];
+                this.project.list.push(data);
+                this.l=[];
+            },
+
+            deleteList(index){
+                this.project.list.splice(index);
             },
 
             async getData(){
-                await axios.get('/api/blog')
+                await axios.get('/api/project')
                             .then( res => {
                                 this.tags = res.data.tags;
-                                this.blogs = res.data.blogs;
+                                this.projects = res.data.projects;
                             })
             },
 
             selectfiles(){
                for (let i = 0; i < this.$refs.files.files.length; i++) {
-                   this.form.images.push(this.$refs.files.files[i]);
-                   //console.log(this.maintain.attaches);
+                   this.project.images.push(this.$refs.files.files[i]);
                }
            },
 
             async submit(){
-                let t_id = JSON.stringify(this.form.tag_id);
-                let lists = JSON.stringify(this.form.list);
+                let t_id = JSON.stringify(this.project.tag_id);
+                let lists = JSON.stringify(this.project.list);
                 var data = new FormData() ;
-                data.append('title', this.form.title);
+                data.append('title', this.project.title);
 
-                for ( let i = 0 ; i < this.form.images.length; i++) {
-                   let file = this.form.images[i];
+                for ( let i = 0 ; i < this.project.images.length; i++) {
+                   let file = this.project.images[i];
                 
                data.append('image[' + i + ']', file);
                }
-                data.append('url', this.form.url);
-                data.append('description', this.form.descripton)
+                data.append('url', this.project.url);
+                data.append('description', this.project.descripton)
                 data.append('tag_id', t_id);
                 data.append('list' , lists);
-                data.append('project_date', this.form.project_date)
+                data.append('project_date', this.project.project_date)
 
                 await axios.post('/api/project',data, {
                     header: {
                         'content-type': 'multipart/form-data',
-                        //'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
                     },
                 }).then( res =>{
                     this.closeUpload();

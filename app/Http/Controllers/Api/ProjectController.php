@@ -23,6 +23,7 @@ class ProjectController extends Controller
             $project -> image = json_decode($project -> image);
         }
 
+
         return response() -> json(['tags' => $tags , 'projects' => $projects]);
     }
 
@@ -31,7 +32,7 @@ class ProjectController extends Controller
     {
         $request -> validate([
             'title' => 'required',
-            'image' => 'nullable',
+            'image' => 'nullable', 
             'url' => 'nullable',
             'description' => 'nullable',
             'tag_id' => 'required',
@@ -64,7 +65,7 @@ class ProjectController extends Controller
             'project_date' => $request -> project_date
         ]);
 
-        return $project;
+        return response() -> json(['message' => 'New Record Created']);
     }
 
  
