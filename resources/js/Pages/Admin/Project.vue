@@ -24,10 +24,12 @@
                 <th class=" py-2 font-thin">No</th>
                 <th class="py-2 font-thin">Img</th>
                 <th class=" py-2 font-thin">Title</th>
-                <th class="py-2 font-thin"> Text</th>
+               
                 <th class=" py-2 font-thin">
                     Tags
                 </th>
+                 <th class="py-2 font-thin"> List</th>
+                 <th class="py-2 font-thin"> Text</th>
                 <th class="py-2 font-thin">Edit</th>
                 <th class=" py-2 font-thin">Delete</th>
                 </tr>
@@ -37,8 +39,8 @@
                 <td class=" py-2 pl-3 text-center">{{index + 1}}</td>
                 <td class=" py-2 pl-3 text-center">
                     <img :src="'/assets/empty.png'" v-if ="p.image == null" alt="" class="object-scale-down h-12 w-12 p-1 rounded mx-auto">
-                    <div v-else>
-                         <img v-for="(i,index) in p.image" :key="index" :src="'/upload/project/'+i" alt="" srcset="" class="object-scale-down h-12 w-12 p-1 rounded-md mx-auto"/>
+                    <div v-else class=" flex justify-between">
+                         <img v-for="(i,index) in p.image" :key="index" :src="'/upload/project/'+i" alt="" srcset="" class="object-scale-down h-6 w-6 p-1 rounded-md mx-auto"/>
                     </div>
                    
 
@@ -55,11 +57,13 @@
                     </div>
                 </td>
 
-                 <td class="py-2 pl-3 text-thin text-center justify-center mt-3">
-                    <div v-for="(l, index) in JSON.parse(p.list)" :key="index"> 
+                 <td class="py-2 pl-3 text-thin text-sm text-center justify-center mt-3">
+                    <div v-for="(l, index) in JSON.parse(p.list)" :key="index" class=""> 
                        {{l.name}}
                     </div>
                 </td>
+
+                <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">{{p.description}} </td>
 
                  <td class=" py-2 text-center">
                      <button  @click="editProject(p)" class="p-2 text-xs rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
@@ -69,7 +73,7 @@
                     </button> 
                     </td>
                   <td class=" py-2 text-center"> 
-                      <button @click="deleteBlog(blog.id)" class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
+                      <button @click="deleteProject(p.id)" class="p-2 rounded-full bg-red-700/90 drop-shadow-lg shadow-md shadow-red-200 decoration-slate-200 text-sm text-white 
                                   hover:drop-shadow-sm hover:opacity-80 hover:shadow-inner
                                   transition ease-in-out duration-300"> 
                                   <DeleteIcon/>
@@ -95,19 +99,33 @@
 
                 <span class="hidden sm:inline-block sm:align-middle sm:h-screen"></span>​
                         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-                          <form @submit.prevent="updateBlog(form)">
+                          <form @submit.prevent="updateProject(project)">
                           <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                             <div class="">
                                   <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
-                                      <input type="text" v-model="form.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                      <input type="text" v-model="project.title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
                                    
                                   </div>
                                   <div class="mb-4">
-                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Text</label>
-                                      <textarea  class=" w-32" v-model=" form.text" placeholder="text"></textarea>
+                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+                                      <textarea  class="w-full h-16 rounded-md border-2 border-gray-400" v-model="project.description" placeholder="text"></textarea>
                                    
                                   </div>
+
+                                   <div class="mb-4">
+                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Url</label>
+                                     <input type="text" v-model="project.url" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1">
+                                   
+                                  </div>
+
+                                   <div class="mb-4">
+                                      <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Project Date</label>
+                                      <input type="date" v-model="project.date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Enter Title">
+                                   
+                                  </div>
+
+                    
                             </div>
                           </div>
                           <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
@@ -171,14 +189,14 @@
                                   </div>
 
                                   <div>
-                                   <h3> Lists </h3>
-                                    <form @submit.prevent="addList" class=" flex justify-between">
+                                   <h3 class=" py-2 text-gray-700"> Lists </h3>
+                                    <form @submit.prevent="addList" class=" flex justify-around py-2">
                                         
                                         <div>
-                                            <input type="text" name="" v-model="l.name">
+                                            <input type="text" name="" v-model="l.name" class=" rounded-lg drop-shadow-sm" placeholder="Add New Lists">
                                         </div>
                                         <div>
-                                            <button class=" px-2 py-1 rounded-lg bg-sky-500" type="submit"> Add</button>
+                                            <button class=" px-2 py-1 rounded-lg bg-sky-300 text-slate-700" type="submit"> Add</button>
                                         </div>
                                     </form>
 
@@ -195,7 +213,7 @@
                                                 <tr v-for="(l,index) in project.list" :key="index">
                                                     <td>{{index + 1}}</td>
                                                     <td> {{l.name}} </td>
-                                                    <td> <button @click="deleteList" class=" px-2 py-1 rounded-lg bg-red-700"> Delete</button> </td>
+                                                    <td> <button @click="deleteList" class=" px-2 py-1 rounded-lg bg-red-700 text-white"> Delete</button> </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -204,7 +222,7 @@
                                   </div>
 
                                   <div class=" my-4">
-                                        <textarea  class=" w-full h-16" v-model=" project.descripton" placeholder="text"></textarea>
+                                        <textarea  class=" w-full h-16 rounded-md border-2 border-gray-400" v-model=" project.descripton" placeholder="text"></textarea>
                                   </div>
                             </div>
                           </div>
@@ -345,20 +363,20 @@
                
             },
 
-            editBlog(project){
-                this.form = Object.assign({}, project)
+            editProject(p){
+                this.project = Object.assign({}, p)
                 this.openModal();
 
             },
 
-            async updateBlog(form){
-                await axios.put(`/api/project/`+form.id , form);
+            async updateProject(project){
+                await axios.put(`/api/project/`+project.id , project);
                 this.reset();
                 this.getData();
                 this.closeModal();
             },
 
-            async deleteBlog(id){
+            async deleteProject(id){
                 if(! confirm("Are You Sure to Delete")) return;
                 await axios.delete(`/api/project/${id}`);
                 this.getData();

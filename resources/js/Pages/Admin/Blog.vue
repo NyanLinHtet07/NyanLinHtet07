@@ -95,7 +95,7 @@
                                   </div>
                                   <div class="mb-4">
                                       <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Text</label>
-                                      <textarea  class=" w-32" v-model=" form.text" placeholder="text"></textarea>
+                                      <textarea   class=" w-full h-16 rounded-md border-2 border-gray-400" v-model=" form.text" placeholder="text"></textarea>
                                    
                                   </div>
                             </div>
@@ -150,7 +150,7 @@
                                   </div>
 
                                   <div class=" mb-4">
-                                        <textarea  class=" w-32" v-model=" form.text" placeholder="text"></textarea>
+                                        <textarea   class=" w-full h-16 rounded-md border-2 border-gray-400" v-model=" form.text" placeholder="text"></textarea>
                                   </div>
                             </div>
                           </div>
