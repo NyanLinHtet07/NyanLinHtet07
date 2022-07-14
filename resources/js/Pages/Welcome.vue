@@ -1,89 +1,73 @@
-<script setup>
-import { Head, Link } from '@inertiajs/inertia-vue3';
-
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String,
-})
-</script>
-
 <template>
-    <div class="relative  items-top justify-center min-h-screen bg-gray-100  sm:items-center sm:pt-0">
-        <div class=" h-screen w-full bg-gradient-to-b from-slate-50 to-slate-300">
-            <div class=" pt-10 flex justify-end">
-                 <img src="/assets/avt.svg" alt="" class=" w-44 z-30 drop-shadow-lg">
+    <div class=" bg-gradient-to-t from-teal-400 to-zinc-400 w-full h-screen overflow-y-auto">
+        <div class=" grid  grid-cols-2 gap-2  w-auto h-fit textB motion-safe:animate-pulse bg-white/60 shadow-sm shadow-slate-50 mt-10 mx-4 h-32 px-3 py-5">
+            <div class="">
+                <h1 class=" text-3xl p-5">
+                    I'm just a software developer, who can use Laravel, Vue and Ionic. 
+                </h1>
             </div>
-           
+            <div class="mt-10">
+                <img src="/assets/avts.svg" alt="" srcset="" class=" mx-3  drop-shadow-lg w-64">
+            </div>
         </div>
-        <div class=" h-screen w-full bg-gradient-to-b from-slate-300 to-yellow-50">
-            Nyan
-        </div>
+
+          
         
     </div>
 </template>
 
 <style scoped>
-    .bg-gray-100 {
-        background-color: #f7fafc;
-        background-color: rgba(247, 250, 252, var(--tw-bg-opacity));
-    }
+.textB{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 480%;
 
-    .border-gray-200 {
-        border-color: #edf2f7;
-        border-color: rgba(237, 242, 247, var(--tw-border-opacity));
-    }
+    border-end-end-radius: 420px;
+    border-end-start-radius: 40px;
+    animation: textBox 10s infinite;
+}
 
-    .text-gray-400 {
-        color: #cbd5e0;
-        color: rgba(203, 213, 224, var(--tw-text-opacity));
-    }
+/* @keyframes textBox{
+   0% {     
+             border-top-left-radius: 220px;
+            border-top-right-radius: 260px;
 
-    .text-gray-500 {
-        color: #a0aec0;
-        color: rgba(160, 174, 192, var(--tw-text-opacity));
-    }
+            border-end-end-radius: 220px;
+            border-end-start-radius: 420px;
+      }
 
-    .text-gray-600 {
-        color: #718096;
-        color: rgba(113, 128, 150, var(--tw-text-opacity));
-    }
+    25% {     
+             border-top-left-radius: 340px;
+            border-top-right-radius: 440px;
 
-    .text-gray-700 {
-        color: #4a5568;
-        color: rgba(74, 85, 104, var(--tw-text-opacity));
-    }
+            border-end-end-radius: 420px;
+            border-end-start-radius: 130px;
+      }
 
-    .text-gray-900 {
-        color: #1a202c;
-        color: rgba(26, 32, 44, var(--tw-text-opacity));
-    }
+    50% {     
+             border-top-left-radius: 560px;
+            border-top-right-radius: 320px;
 
-    @media (prefers-color-scheme: dark) {
-        .dark\:bg-gray-800 {
-            background-color: #2d3748;
-            background-color: rgba(45, 55, 72, var(--tw-bg-opacity));
-        }
+            border-end-end-radius: 260px;
+            border-end-start-radius: 230px;
+      }
 
-        .dark\:bg-gray-900 {
-            background-color: #1a202c;
-            background-color: rgba(26, 32, 44, var(--tw-bg-opacity));
-        }
+    75% {     
+             border-top-left-radius: 280px;
+            border-top-right-radius: 330px;
 
-        .dark\:border-gray-700 {
-            border-color: #4a5568;
-            border-color: rgba(74, 85, 104, var(--tw-border-opacity));
-        }
+            border-end-end-radius: 180px;
+            border-end-start-radius: 320px;
+      }
 
-        .dark\:text-white {
-            color: #fff;
-            color: rgba(255, 255, 255, var(--tw-text-opacity));
-        }
+        1000% {     
+             border-top-left-radius: 210px;
+            border-top-right-radius: 260px;
 
-        .dark\:text-gray-400 {
-            color: #cbd5e0;
-            color: rgba(203, 213, 224, var(--tw-text-opacity));
-        }
-    }
+            border-end-end-radius: 204px;
+            border-end-start-radius: 240px;
+      }
+    
+    } */
+
+
 </style>
