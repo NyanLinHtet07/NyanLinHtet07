@@ -1,14 +1,27 @@
 <template>
     <div class=" bg-gradient-to-t from-teal-400 to-zinc-400 w-full h-screen overflow-y-auto">
-        <div class=" grid  grid-cols-2 gap-2  w-auto h-fit textB motion-safe:animate-pulse bg-white/60 shadow-sm shadow-slate-50 mt-10 mx-4 h-32 px-3 py-5">
-            <div class="">
+        <div class=" grid  grid-cols-1 text-center mt-20">
+            
+            <div class="mt-10">
+                <img src="/assets/avts.svg" alt="" srcset="" class=" drop-shadow-lg w-64 animate-b duration-700 mx-auto block">
+            </div>
+            
+            <div class=" px-3 py-2 rounded-3xl w-fit bg-white/60 mx-auto block">
                 <h1 class=" text-3xl p-5">
                     I'm just a software developer, who can use Laravel, Vue and Ionic. 
                 </h1>
+                <h4> If You  Want To Know more Detail About Me, download Resume</h4>
+
+                <button class=" px-2 py-1 rounded-full bg-white/90"> Resume </button>
             </div>
-            <div class="mt-10">
-                <img src="/assets/avts.svg" alt="" srcset="" class=" mx-3  drop-shadow-lg w-64">
+
+            <div class=" flex justify-center mt-8">
+              <PhoneIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-green-600/90 rounded-full hover:shadow-md hover:shadow-green-500 transition duration-150"/> 
+              <MailIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-rose-600/90 rounded-full  hover:shadow-md hover:shadow-red-300 transition duration-150"/>  
+              <FacebookIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-blue-600/90 rounded-full  hover:shadow-md hover:shadow-blue-500 transition duration-150"/> 
+              <LinkedInIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-sky-600/90 rounded-full  hover:shadow-md hover:shadow-sky-500 transition duration-150"/> 
             </div>
+            
         </div>
 
           
@@ -16,15 +29,27 @@
     </div>
 </template>
 
+<script>
+import FacebookIcon from 'vue-material-design-icons/Facebook.vue'
+import LinkedInIcon from 'vue-material-design-icons/Linkedin.vue'
+import PhoneIcon from 'vue-material-design-icons/Phone.vue'
+import MailIcon from 'vue-material-design-icons/Mail.vue'
+export default {
+    components:{
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon
+    }
+}
+</script>
+
 <style scoped>
-.textB{
+/* .textB{
     border-top-left-radius: 20px;
     border-top-right-radius: 480%;
 
     border-end-end-radius: 420px;
     border-end-start-radius: 40px;
     animation: textBox 10s infinite;
-}
+} */
 
 /* @keyframes textBox{
    0% {     

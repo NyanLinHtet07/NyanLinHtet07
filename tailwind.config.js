@@ -14,6 +14,9 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+            animation: {
+                'b': 'bounce 9s infinite',
+              }
         },
     },
 
