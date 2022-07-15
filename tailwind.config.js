@@ -15,7 +15,7 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
             animation: {
-                'b': 'bounce 9s infinite',
+                'b': 'bounce 11s infinite',
               }
         },
     },

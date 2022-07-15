@@ -1,27 +1,40 @@
 <template>
-    <div class=" bg-gradient-to-t from-teal-400 to-zinc-400 w-full h-screen overflow-y-auto">
-        <div class=" grid  grid-cols-1 text-center mt-20">
-            
-            <div class="mt-10">
-                <img src="/assets/avts.svg" alt="" srcset="" class=" drop-shadow-lg w-64 animate-b duration-700 mx-auto block">
+    <div class=" bg-gradient-to-t from-teal-300 to-zinc-400 w-full h-screen overflow-y-auto">
+        <header>
+            <Menu></Menu>
+        </header>
+        <div class=" grid  grid-cols-1 text-center mt-7">
+            <div class="">
+                <img src="/assets/me.png" alt="" srcset="" class=" drop-shadow-2xl w-64 animate-b duration-700 mx-auto block z-50">
             </div>
             
-            <div class=" px-3 py-2 rounded-3xl w-fit bg-white/60 mx-auto block">
-                <h1 class=" text-3xl p-5">
+            <div class=" px-3 py-2 rounded-3xl w-fit mx-auto block">
+                <h1 class=" text-2xl font-bold text-gray-900/70 ">
                     I'm just a software developer, who can use Laravel, Vue and Ionic. 
                 </h1>
-                <h4> If You  Want To Know more Detail About Me, download Resume</h4>
+                <h4 class="text-slate-900/70 font-semibold mt-2"> If You  Want to Discuss with Me, Come On Guy</h4>
 
-                <button class=" px-2 py-1 rounded-full bg-white/90"> Resume </button>
+                <button class=" px-3 py-2 rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/70"> Talk With Me </button>
             </div>
 
             <div class=" flex justify-center mt-8">
               <PhoneIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-green-600/90 rounded-full hover:shadow-md hover:shadow-green-500 transition duration-150"/> 
               <MailIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-rose-600/90 rounded-full  hover:shadow-md hover:shadow-red-300 transition duration-150"/>  
-              <FacebookIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-blue-600/90 rounded-full  hover:shadow-md hover:shadow-blue-500 transition duration-150"/> 
-              <LinkedInIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-sky-600/90 rounded-full  hover:shadow-md hover:shadow-sky-500 transition duration-150"/> 
+              <FacebookIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-blue-600 rounded-full  hover:shadow-md hover:shadow-blue-500 transition duration-150"/> 
+              <LinkedInIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-sky-600 rounded-full  hover:shadow-md hover:shadow-sky-500 transition duration-150"/> 
             </div>
             
+        </div>
+
+        <div class=" w-full h-screen mt-24 block items-center text-center">
+             <h1 class=" text-xl font-bold text-gray-900/70 ">
+                   Ah, If you Want to kown more about me, download My Resume
+                </h1>
+
+                <button type=""> Down Me</button>
+
+                <h3>OR</h3>
+            <img src="/assets/testqr.png" alt="" srcset="" class=" w-64 mx-auto drop-shadow-lg px-2 py-2 rounded-lg shadow-lg bg-white/30">
         </div>
 
           
@@ -34,9 +47,11 @@ import FacebookIcon from 'vue-material-design-icons/Facebook.vue'
 import LinkedInIcon from 'vue-material-design-icons/Linkedin.vue'
 import PhoneIcon from 'vue-material-design-icons/Phone.vue'
 import MailIcon from 'vue-material-design-icons/Mail.vue'
+
+import Menu from '../Layouts/Menu.vue'
 export default {
     components:{
-        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , Menu
     }
 }
 </script>
