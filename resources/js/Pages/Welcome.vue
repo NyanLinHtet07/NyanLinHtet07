@@ -26,15 +26,19 @@
             
         </div>
 
-        <div class=" w-full h-screen mt-24 block items-center text-center">
-             <h1 class=" text-xl font-bold text-gray-900/70 ">
+        <div class=" w-full h-screen mt-24 grid items-center text-center">
+             <h1 class=" text-2xl font-bold text-gray-900/70 ">
                    Ah, If you Want to kown more about me, download My Resume
                 </h1>
 
-                <button type=""> Down Me</button>
+                <!-- <button type="" class=" px-3 py-2 rounded-full border-none bg-white/50 my-8"> Download</button> -->
 
-                <h3>OR</h3>
-            <img src="/assets/testqr.png" alt="" srcset="" class=" w-64 mx-auto drop-shadow-lg px-2 py-2 rounded-lg shadow-lg bg-white/30">
+                <h3 class=" text-4xl font-sans font-bold text-gray-800">OR</h3>
+            <img src="/assets/testqr.png" alt="" srcset="" class=" w-64 mx-auto drop-shadow-lg px-2 py-2 z-30 rounded-lg shadow-lg bg-white/30">
+        </div>
+
+        <div class=" w-full h-screen grid mt-10">
+            <h3  class=" text-2xl font-bold text-gray-900/70 ml-3 "> This is My Last Freelance Project</h3>
         </div>
 
           

@@ -7,13 +7,13 @@
                                 hover:shadow-sm hover:shadow-red-200 transition duration-700 animate-pulse">
                 <h3 class=" font-serif text-clip text-xl font-bold text-gray-700">M</h3> <MenuIcon />
             </div> -->
-           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/50 text-zinc-800/70 font-semibold
+           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="home">Home</button>
-           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/50 text-zinc-800/70 font-semibold
+           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="blog"> Blogs </button>
-           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/50 text-zinc-800/70 font-semibold
+           <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="project"> Projects </button>
-             <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/50 text-zinc-800/70 font-semibold
+             <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="contact"> Contacts </button>
        </div> 
     </nav>
