@@ -13,6 +13,8 @@
                         hover:shadow-lg transition delay-300 " id="blog"> Blogs </button>
            <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="project"> Projects </button>
+            <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
+                        hover:shadow-lg transition delay-300 " id="contact"> About Me </button>
              <button class=" mx-2 mt-2 px-2 py-1 rounded-full shadow-md bg-white/80 text-zinc-800/70 font-semibold
                         hover:shadow-lg transition delay-300 " id="contact"> Contacts </button>
        </div> 
