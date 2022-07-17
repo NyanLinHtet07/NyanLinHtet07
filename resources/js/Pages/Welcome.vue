@@ -1,8 +1,7 @@
 <template>
-    <div class=" bg-gradient-to-t from-teal-300 to-zinc-200 w-full h-screen overflow-y-auto">
-        <header>
-            <Menu></Menu>
-        </header>
+    <MasterLayout>
+    <div class="">
+       
         <div class=" grid  grid-cols-1 text-center mt-7">
             <div class="">
                 <img src="/assets/me.png" alt="" srcset="" class=" drop-shadow-2xl w-64 animate-b duration-700 mx-auto block z-50">
@@ -139,6 +138,7 @@
           
         
     </div>
+    </MasterLayout>
 </template>
 
 <script>
@@ -147,7 +147,7 @@ import LinkedInIcon from 'vue-material-design-icons/Linkedin.vue'
 import PhoneIcon from 'vue-material-design-icons/Phone.vue'
 import MailIcon from 'vue-material-design-icons/Mail.vue'
 
-import Menu from '../Layouts/Menu.vue'
+import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
     data() {
         return {
@@ -155,7 +155,7 @@ export default {
         }
     },
     components:{
-        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , Menu
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout
     }
 }
 </script>
