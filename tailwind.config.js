@@ -25,13 +25,13 @@ module.exports = {
                         transform: " translate(0,0) scale(1)"
                     },
                     "25%":{
-                        transform:" translate(50px, -50px) scale(1.2)"
+                        transform:" translate(30px, -40px) scale(1.1)"
                     },
                     "50%":{
-                        transform:" translate(80px,-80px) scale(1.6)"
+                        transform:" translate(60px,-60px) scale(1.2)"
                     },
                     "75%":{
-                        transform: " translate(-50px, 50px) scale(1.2)"
+                        transform: " translate(-30px, 40px) scale(0.9)"
                     },
                     "100%":{
                         transform:" translate(0,0) scale(1)"
