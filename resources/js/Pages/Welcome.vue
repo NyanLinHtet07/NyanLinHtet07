@@ -35,24 +35,33 @@
         </div> -->
 
         <div class=" w-full grid mt-20">
-            <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 text-center isolate "> Project</h3>
+            <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 mb-3 text-center isolate "> Project</h3>
 
             <div class=" grid grid-cols-1 gap-2 md:grid-cols-2">
-                <img src="/assets/me.png" alt="" srcset="" class=" mx-auto block  px-3 py-2 mt-5 w-36 md:w-64">
+                <div>
+                     <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
+                      <img :src="`/upload/project/`+JSON.parse(project.image)[1]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
+                </div>
+               
 
-                <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit  bg-white/20 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
-                    <h2 class=" my-4 font-bold text-2xl"> POS System for Market </h2>
+                <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit  bg-white/10 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
+                    <div class="py-2 pl-3 text-thin text-center flex justify-end mt-3">
+          
+                    <div v-for="(t_id, index) in JSON.parse(project.tag_id)" :key="index">
+                        <div v-for=" tag in tags" :key="tag.id">
+                            <div v-if=" tag.id == t_id">
+                                 <img :src="'/upload/tag/'+tag.icon" alt="" srcset="" class="  px-3 py-2 mt-5 w-12"/>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                   
+                    <h2 class=" my-4 font-bold text-2xl"> {{project.title}} </h2>
                     <ul class=" mt-6 list-item px-6">
-                        <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Easy to Upload, Update Products </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Product Quantity and Stock In, Stock Out Control </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Manage Customer Debit </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Add Day by day Expensense with detail Infomation </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Auto Caculate daily, monthly profit base on income and expense</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Can easily create an account for infinity branches and easily manage </li>
+                        <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
                     <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden">
-                       {{ text.substring(0,400) +" ..."}}
+                       {{ project.description.substring(0,400) +" ..."}}
                     </p>
                 </div>
             </div>
@@ -62,27 +71,23 @@
                     </button>
             </div>
         </div>
-        <div class=" w-full  grid mt-20">
+        <div class=" w-full  grid mt-10">
              <h3  class=" text-4xl font-bold text-gray-900/90 ml-3  text-center isolate mt-10 ">Blog</h3>
-             <div class=" mx-2 px-3 py-4 my-8 rounded-xl bg-white/10  md:bg-white/60 z-10 h-fit">
-                <h1 class=" text-xl my-7 ml-4 font-semibold"> Story Of Me </h1>
-                <div>
-                    
+             <div class=" mx-3 px-3 py-4 my-8 rounded-xl bg-white/10  md:bg-white/60 z-10 h-fit">
+                <h1 class=" text-xl my-7 ml-4 font-semibold">  {{blog.title}} </h1>
+                <div class=" flex justify-start">
+                       <div v-for="(t_id,index) in JSON.parse(blog.tag_id)" :key="index">
+                   <div v-for="tag in tags" :key="tag.id">
+                        <div v-if=" t_id == tag.id">
+                            <small class=" px-3 py-2 rounded-full bg-white/70 shadow-md mx-2">{{tag.name}}</small>
+                        </div>
+                   </div>
                 </div>
-                <img src="/assets/me.png" alt="" srcset="" class="  px-3 py-2 mt-5 w-12"/>
+                </div>
+             
+               
                 <p class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti aspernatur, 
-                        ut magni quidem laborum obcaecati id architecto possimus saepe at harum velit debitis 
-                        facilis dignissimos ea dolore deleniti suscipit?
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti aspernatur, 
-                        ut magni quidem laborum obcaecati id architecto possimus saepe at harum velit debitis 
-                        facilis dignissimos ea dolore deleniti suscipit?
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti aspernatur, 
-                        ut magni quidem laborum obcaecati id architecto possimus saepe at harum velit debitis 
-                        facilis dignissimos ea dolore deleniti suscipit?
-                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti aspernatur, 
-                        ut magni quidem laborum obcaecati id architecto possimus saepe at harum velit debitis 
-                        facilis dignissimos ea dolore deleniti suscipit?
+                      {{blog.text.substring(0,400)+'...'}}
                 </p>
                  
              </div>
@@ -149,6 +154,7 @@ import MailIcon from 'vue-material-design-icons/Mail.vue'
 
 import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
+    props: ['project' , 'tags', 'blog'],
     data() {
         return {
             text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam hic reprehenderit fugit atque cupiditate. Esse error ipsum deserunt Odio itaque minus voluptates nostrum doloribus voluptatem corporis? Minima at minus officiis',

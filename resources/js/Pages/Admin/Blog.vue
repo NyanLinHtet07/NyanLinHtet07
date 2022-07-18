@@ -41,12 +41,13 @@
 
                 </td>
                 <td class=" py-2 pl-3 text-center">{{blog.title}}</td>
-                <td class=" py-2 pl-3 text-center text-sm">{{blog.text}}</td>
+                <td class=" py-2 pl-3 text-left text-sm">{{blog.text.substring(0,200)+'...'}}</td>
                 <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">
                     <div v-for="(t_id, index) in JSON.parse(blog.tag_id)" :key="index"> 
                        <div v-for="tag in tags" :key="tag.id">
                             <div v-if=" tag.id == t_id" class=" text-xs mx-2">
-                               <img :src="'/upload/tag/'+tag.icon"  class=" object-scale-down h-6 w-6"> 
+                               <!-- <img :src="'/upload/tag/'+tag.icon"  class=" object-scale-down h-6 w-6">  -->
+                                {{tag.name}}
                             </div>
                        </div> 
                     </div>
