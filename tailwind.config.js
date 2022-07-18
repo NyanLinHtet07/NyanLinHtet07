@@ -13,6 +13,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                title: [   'Nunito', 'sans-serif'],
             },
             animation: {
                 'b': 'bounce 11s infinite',

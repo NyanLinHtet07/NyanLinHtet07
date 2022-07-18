@@ -13,7 +13,7 @@
                 </h1>
                 <h4 class="text-slate-900/70 font-semibold mt-2"> If You  Want to Discuss with Me, Come On Guy</h4>
 
-                <button class=" px-3 py-2 rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/90"> Talk With Me </button>
+                <button class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
             </div>
 
             <div class=" flex justify-center mt-8">
@@ -34,13 +34,13 @@
             <img src="/assets/testqr.png" alt="" srcset="" class=" w-64 mx-auto drop-shadow-lg px-2 py-2 z-30 rounded-lg shadow-lg bg-white/30">
         </div> -->
 
-        <div class=" w-full h-screen grid mt-20">
-            <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 text-center isolate ">My Last Project</h3>
+        <div class=" w-full grid mt-20">
+            <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 text-center isolate "> Project</h3>
 
             <div class=" grid grid-cols-1 gap-2 md:grid-cols-2">
                 <img src="/assets/me.png" alt="" srcset="" class=" mx-auto block  px-3 py-2 mt-5 w-36 md:w-64">
 
-                <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit  bg-white/30 rounded-lg backdrop-blur-lg backdrop-filter">
+                <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit  bg-white/20 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
                     <h2 class=" my-4 font-bold text-2xl"> POS System for Market </h2>
                     <ul class=" mt-6 list-item px-6">
                         <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
@@ -51,7 +51,7 @@
                         <li  class=" my-2 text-sm font-medium list-disc"> Auto Caculate daily, monthly profit base on income and expense</li>
                         <li  class=" my-2 text-sm font-medium list-disc"> Can easily create an account for infinity branches and easily manage </li>
                     </ul>
-                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal">
+                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden">
                        {{ text.substring(0,400) +" ..."}}
                     </p>
                 </div>
@@ -62,15 +62,15 @@
                     </button>
             </div>
         </div>
-        <div class=" w-full h-screen mt-32">
+        <div class=" w-full  grid mt-20">
              <h3  class=" text-4xl font-bold text-gray-900/90 ml-3  text-center isolate mt-10 ">Blog</h3>
-             <div class=" w-3/4 px-3 py-4 my-8 rounded-xl mx-auto bg-white/50 z-10 h-fit">
+             <div class=" mx-2 px-3 py-4 my-8 rounded-xl bg-white/10  md:bg-white/60 z-10 h-fit">
                 <h1 class=" text-xl my-7 ml-4 font-semibold"> Story Of Me </h1>
                 <div>
                     
                 </div>
                 <img src="/assets/me.png" alt="" srcset="" class="  px-3 py-2 mt-5 w-12"/>
-                <p class=" mt-6 w-3/4 mx-auto mb-4 text-justify  whitespace-normal">
+                <p class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia corrupti aspernatur, 
                         ut magni quidem laborum obcaecati id architecto possimus saepe at harum velit debitis 
                         facilis dignissimos ea dolore deleniti suscipit?
@@ -93,11 +93,11 @@
             </div>
         </div>
 
-        <div class=" mx-6 h-screen grid items-center">
+        <div class="  w-full grid mt-20">
              <h2 class=" text-4xl font-bold text-gray-900/90 ml-3  text-center isolate mt-10 "> What Can I Serve for You </h2>
-            <div class=" grid md:grid-cols-3 gap-4 grid-cols-1">
+            <div class=" grid md:grid-cols-3 gap-4 grid-cols-1 mx-2 mb-3 mt-10">
                 <div class=" px-2 py-3 rounded-lg bg-white/40 backdrop-blur-md backdrop-filter">
-                    <h3 class=" text-lg font-bold px-4  pt-3"> Ecormmaerce Service</h3>
+                    <h3 class=" text-lg font-bold px-3  pt-3"> Ecormmaerce Service</h3>
                     <ul class="mt-6 list-item px-6">
                          <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
                         <li  class=" my-2 text-sm font-medium list-disc"> Easy to Upload, Update Products </li>

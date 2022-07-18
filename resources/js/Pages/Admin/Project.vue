@@ -40,7 +40,8 @@
                 <td class=" py-2 pl-3 text-center">
                     <img :src="'/assets/empty.png'" v-if ="p.image == null" alt="" class="object-scale-down h-12 w-12 p-1 rounded mx-auto">
                     <div v-else class=" flex justify-between">
-                         <img v-for="(i,index) in p.image" :key="index" :src="'/upload/project/'+i" alt="" srcset="" class="object-scale-down h-6 w-6 p-1 rounded-md mx-auto"/>
+                         <img  :src="'/upload/project/'+p.image[0]" alt="" srcset="" class="object-scale-down h-12 w-12 p-1 rounded-md mx-auto"/>
+                         <!-- <img v-for="(i,index) in p.image" :key="index" :src="'/upload/project/'+i" alt="" srcset="" class="object-scale-down h-6 w-6 p-1 rounded-md mx-auto"/> -->
                     </div>
                    
 
@@ -63,7 +64,7 @@
                     </div>
                 </td>
 
-                <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">{{p.description}} </td>
+                <td class="py-2 pl-3 text-thin text-center flex justify-center mt-3">{{ p.description.substring(0 , 70)+ '...'}} </td>
 
                  <td class=" py-2 text-center">
                      <button  @click="editProject(p)" class="p-2 text-xs rounded-full bg-emerald-700/90  drop-shadow-lg shadow-md shadow-emerald-200 decoration-slate-200 text-white 
