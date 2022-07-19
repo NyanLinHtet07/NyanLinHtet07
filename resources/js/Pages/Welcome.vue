@@ -37,7 +37,7 @@
         <div class=" w-full grid mt-20">
             <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 mb-3 text-center isolate "> Project</h3>
 
-            <div class=" grid grid-cols-1 gap-2 md:grid-cols-2">
+            <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
                       <img :src="`/upload/project/`+JSON.parse(project.image)[1]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
@@ -100,43 +100,23 @@
 
         <div class="  w-full grid mt-20">
              <h2 class=" text-4xl font-bold text-gray-900/90 ml-3  text-center isolate mt-10 "> What Can I Serve for You </h2>
-            <div class=" grid md:grid-cols-3 gap-4 grid-cols-1 mx-2 mb-3 mt-10">
-                <div class=" px-2 py-3 rounded-lg bg-white/40 backdrop-blur-md backdrop-filter">
-                    <h3 class=" text-lg font-bold px-3  pt-3"> Ecormmaerce Service</h3>
-                    <ul class="mt-6 list-item px-6">
-                         <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Easy to Upload, Update Products </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Product Quantity and Stock In, Stock Out Control </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Manage Customer Debit </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Add Day by day Expensense with detail Infomation </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Auto Caculate daily, monthly profit base on income and expense</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Can easily create an account for infinity branches and easily manage </li>
-                    </ul>
-                </div>
-                <div class=" px-2 py-3 rounded-lg bg-white/40 backdrop-blur-md backdrop-filter">
-                    <h3 class=" text-lg font-bold px-4  pt-3"> Custom Web Service</h3>
-                    <ul class="mt-6 list-item px-6">
-                         <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Easy to Upload, Update Products </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Product Quantity and Stock In, Stock Out Control </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Manage Customer Debit </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Add Day by day Expensense with detail Infomation </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Auto Caculate daily, monthly profit base on income and expense</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Can easily create an account for infinity branches and easily manage </li>
-                    </ul>
-                </div>
-               <div class=" px-2 py-3 rounded-lg bg-white/40 backdrop-blur-md backdrop-filter">
-                    <h3 class=" text-lg font-bold px-4  pt-3"> POS System</h3>
-                    <ul class="mt-6 list-item px-6">
-                         <li class=" my-2 text-sm font-medium list-disc"> Responsive Design</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Easy to Upload, Update Products </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Product Quantity and Stock In, Stock Out Control </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Manage Customer Debit </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Add Day by day Expensense with detail Infomation </li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Auto Caculate daily, monthly profit base on income and expense</li>
-                        <li  class=" my-2 text-sm font-medium list-disc"> Can easily create an account for infinity branches and easily manage </li>
-                    </ul>
-                </div>
+            <div class=" grid grid-cols-2 md:grid-cols-4 gap-4 mx-2 mb-3 mt-10">
+                <div class=" px-3 py-2 rounded-lg bg-white/40">
+                    <WebIcon/>
+                    Web Services
+               </div>
+
+               <div class=" px-3 py-2 rounded-lg bg-white/40">
+                    Ecormmerce
+               </div>
+               
+                <div class=" px-3 py-2 rounded-lg bg-white/40">
+                    POS
+               </div>
+
+                <div class=" px-3 py-2 rounded-lg bg-white/40">
+                    Online Learning
+               </div>
             </div>
         </div>
 
@@ -151,6 +131,7 @@ import FacebookIcon from 'vue-material-design-icons/Facebook.vue'
 import LinkedInIcon from 'vue-material-design-icons/Linkedin.vue'
 import PhoneIcon from 'vue-material-design-icons/Phone.vue'
 import MailIcon from 'vue-material-design-icons/Mail.vue'
+import WebIcon from 'vue-material-design-icons/CodeLessThanOrEqual.vue'
 
 import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
@@ -161,7 +142,7 @@ export default {
         }
     },
     components:{
-        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout , WebIcon
     }
 }
 </script>

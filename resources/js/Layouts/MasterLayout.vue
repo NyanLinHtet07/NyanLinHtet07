@@ -34,7 +34,7 @@
             </div> 
             </nav>
             <div class=" md:hidden block w-10">
-                <button @click=" showSidebar = !showSidebar" v-if="! showSidebar" class=" bg-white/20 ml-3 z-40 mt-6 mb-4 px-2 py-1 rounded-lg text-gray-700 hover:text-rose-600 delay-200"> <MenuIcon /> </button>
+                <button @click=" showSidebar = !showSidebar" v-if="! showSidebar" class="bg-white/60 ml-2 z-40 mt-6 mb-4 px-2 py-1 rounded-lg text-gray-700 hover:text-rose-600 delay-200"> <MenuIcon /> </button>
                  
                  
                  <div class=" block md:hidden h-screen w-48 max-h-full bg-white bg-opacity-90 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6
@@ -57,6 +57,10 @@
 
                         <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <ProjectIcon />  <button class="">Projects</button>
+                        </div>
+
+                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                            <ServiceIcon />  <button class="">Services</button>
                         </div>
 
                         <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
@@ -89,12 +93,13 @@ import BookIcon from 'vue-material-design-icons//BookOpenOutline.vue'
 import ProjectIcon from 'vue-material-design-icons/CodeNotEqualVariant.vue'
 import AboutIcon from 'vue-material-design-icons/AccountOutline.vue'
 import CommentIcon from 'vue-material-design-icons/CommentTextMultipleOutline.vue'
+import ServiceIcon from 'vue-material-design-icons/Webhook.vue'
 import CancelIcon from 'vue-material-design-icons/WindowClose.vue'
 import {ref} from 'vue'
 export default {
     components:{
         MenuIcon,
-        HomeIcon , BookIcon , ProjectIcon, AboutIcon, CommentIcon , CancelIcon
+        HomeIcon , BookIcon , ProjectIcon, AboutIcon, CommentIcon , CancelIcon, ServiceIcon
     },
 
     setup() {
