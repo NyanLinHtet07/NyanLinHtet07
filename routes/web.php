@@ -7,9 +7,12 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BlogMainController;
+use App\Http\Controllers\ProjectMainController;
 
-
-Route::get('/', [HomeController::class,'index']);
+Route::get('/', [HomeController::class,'index']) -> name('home');
+Route::get('/blogs',[BlogMainController::class, 'index']) -> name('blog');
+Route::get('/projects', [ ProjectMainController::class, 'index']) ->name('project');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

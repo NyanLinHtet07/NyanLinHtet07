@@ -12,17 +12,17 @@
                 <h2 class=" font-title font-extrabold title text-rose-700 subpixel-antialiased drop-shadow-xl">N</h2>
             </header>
             <div class=" ml-4 z-20">
-                    <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
-                        <HomeIcon/>  <button class="">Home</button>
-                    </div>
+                    <Link :href="route('home')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <HomeIcon/>  <p class="">Home</p>
+                    </Link>
 
-                     <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <Link :href="route('blog')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <BookIcon />  <button class="">Blogs</button>
-                    </div>
+                    </Link>
 
-                     <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <Link :href="route('project')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <ProjectIcon />  <button class="">Projects</button>
-                    </div>
+                    </Link>
 
                      <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <AboutIcon />  <button class="">About</button>
@@ -47,13 +47,13 @@
                         <h2 class=" font-title font-extrabold text-2xl text-rose-700 subpixel-antialiased drop-shadow-xl">N</h2>
                     </header>
                      <div class=" mt-24 ml-4 z-20">
-                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
-                            <HomeIcon/>  <button class="">Home</button>
-                        </div>
+                        <Link :href="route('home')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                            <HomeIcon/>  <p class="">Home</p>
+                        </Link>
 
-                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
-                            <BookIcon />  <button class="">Blogs</button>
-                        </div>
+                        <Link :href="route('blog')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                            <BookIcon />  <p class="">Blogs</p>
+                        </Link>
 
                         <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <ProjectIcon />  <button class="">Projects</button>
@@ -95,11 +95,12 @@ import AboutIcon from 'vue-material-design-icons/AccountOutline.vue'
 import CommentIcon from 'vue-material-design-icons/CommentTextMultipleOutline.vue'
 import ServiceIcon from 'vue-material-design-icons/Webhook.vue'
 import CancelIcon from 'vue-material-design-icons/WindowClose.vue'
+import { Link } from '@inertiajs/inertia-vue3';
 import {ref} from 'vue'
 export default {
     components:{
         MenuIcon,
-        HomeIcon , BookIcon , ProjectIcon, AboutIcon, CommentIcon , CancelIcon, ServiceIcon
+        HomeIcon , BookIcon , ProjectIcon, AboutIcon, CommentIcon , CancelIcon, ServiceIcon, Link
     },
 
     setup() {
