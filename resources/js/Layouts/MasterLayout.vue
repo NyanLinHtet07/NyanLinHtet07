@@ -76,7 +76,7 @@
             
             
             
-            <div class=" flex-1 overflow-y-auto">
+            <div class=" flex-1 overflow-y-auto h-screen">
                 <main class=" bg-white/50 mt-20 mb-6 main-border z-20 border-none mr-3 h-auto shadow-lg">
                     <slot/>
                 </main>
