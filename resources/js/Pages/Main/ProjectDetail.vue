@@ -1,8 +1,8 @@
 <template>
     <MasterLayout>
-    <div class=" px-3 py-4">
-        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8"> Projects </h1>
-        <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2" v-for="project in projects.data" :key="project.id">
+         <div class=" px-3 py-4">
+        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8"> Project Detail </h1>
+        <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
                       <img :src="`/upload/project/`+JSON.parse(project.image)[1]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
@@ -26,28 +26,20 @@
                         <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
                     <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden">
-                       {{ project.description.substring(0,200) +" ..."}}
+                       {{ project.description.substring(0,400) +" ..."}}
                     </p>
-
-                    <div class=" text-right">
-                        <Link :href="`/project/detail/`+project.id" class="px-3 py-2 rounded-full bg-white/60"> Detail </Link>
-                    </div>
                 </div>
             </div>
-             <div class="mt-6 flex justify-center">
-                <pagination   :links="projects.links" />
             </div>
-    </div>
     </MasterLayout>
 </template>
-
 <script>
-import MasterLayout from '@/Layouts/MasterLayout.vue';
-import {Link} from '@inertiajs/inertia-vue3'
+
+import MasterLayout from '../../Layouts/MasterLayout.vue'
 export default {
-    props:['projects', 'tags'],
+    props:['project', 'tags'],
     components:{
-        MasterLayout, Link
+        MasterLayout
     }
 }
 </script>

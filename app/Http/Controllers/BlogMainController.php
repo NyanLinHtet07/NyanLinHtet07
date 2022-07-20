@@ -11,7 +11,7 @@ class BlogMainController extends Controller
 {
     public function index(){
         $blogs = Blog::orderBy('id' , 'desc')
-                        ->paginate(1);
+                        ->paginate(6);
         $tags = Tag::all();
         return Inertia::render('Main/Blog', [
             'blogs' => $blogs,

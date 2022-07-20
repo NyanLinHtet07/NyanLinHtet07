@@ -11,17 +11,29 @@
                             <small class=" px-3 py-2 rounded-full bg-white/70 shadow-md mx-2">{{tag.name}}</small>
                         </div>
                    </div>
-                </div>
+                </div> 
                 </div>
              
                
-                <p class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal">
+                <!-- <p class=" mt-6 mx-1 mb-4 text-justify  whitespace-normal" v-if="! more">
                       {{blog.text.substring(0,400)+'...'}}
+                      <small @click="readMore(blog.id)"> More</small>
+                </p> -->
+
+                <p class=" mt-6 mx-1 mb-4 text-justify whitespace-normal">
+                      {{blog.text}}
+                      <!-- <small @click="readMore"> More</small> -->
                 </p>
+
+                
+                
                  
              </div>
 
-             <pagination class="mt-6" :links="blogs.links" />
+            <div class="mt-6 flex justify-center">
+                <pagination   :links="blogs.links" />
+            </div>
+             
     </div>
     </MasterLayout>
 </template>
@@ -33,6 +45,13 @@ export default {
     props:['blogs', 'tags'],
     components:{
         MasterLayout, Pagination
-    }
+    },
+    data() {
+        return {
+            more: false,
+        }
+    },
+
+   
 }
 </script>
