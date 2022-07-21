@@ -27,6 +27,10 @@ class HomeController extends Controller
         ]);
     }
 
+    public function about(){
+        return Inertia::render('Main/AboutMe');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

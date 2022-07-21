@@ -14,6 +14,7 @@ Route::get('/', [HomeController::class,'index']) -> name('home');
 Route::get('/blogs',[BlogMainController::class, 'index']) -> name('blog');
 Route::get('/projects', [ ProjectMainController::class, 'index']) ->name('project');
 Route::get('/project/detail/{id}', [ProjectMainController::class, 'detail']);
+Route::get('/about', [HomeController::class, 'about']) -> name('about');
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

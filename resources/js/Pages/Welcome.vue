@@ -8,12 +8,12 @@
             </div>
             
             <div class=" px-3 py-2 rounded-3xl w-fit mx-auto block">
-                <h1 class=" text-2xl font-bold text-gray-900/90 ">
+                <h1 class=" text-2xl font-bold text-gray-900/90 mb-5 ">
                     I'm just a software developer, who can use Laravel, Vue and Ionic. 
                 </h1>
-                <h4 class="text-slate-900/70 font-semibold mt-2"> If You  Want to Discuss with Me, Come On Guy</h4>
 
-                <button class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
+                <Link :href="route('about')" class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300">Who Am I </Link>
+                
             </div>
 
             <div class=" flex justify-center mt-8">
@@ -40,11 +40,11 @@
             <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
-                      <img :src="`/upload/project/`+JSON.parse(project.image)[1]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
+                      <img :src="`/upload/project/`+JSON.parse(project.image)[0]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
                 </div>
                
 
-                <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit  bg-white/10 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
+                <div class=" md:px-7 md:py-3 mx-6 md:my-3 h-fit  bg-white/10 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
                     <div class="py-2 pl-3 text-thin text-center flex justify-end mt-3">
           
                     <div v-for="(t_id, index) in JSON.parse(project.tag_id)" :key="index">
@@ -60,15 +60,23 @@
                     <ul class=" mt-6 list-item px-6">
                         <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
-                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden">
+                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden mb-5">
                        {{ project.description.substring(0,400) +" ..."}}
                     </p>
+
+                    
+                    <div v-if="project.url == 'null'">
+                        
+                    </div>
+                    <div v-else class=" flex">
+                       <p class=" font-semibold mx-3"> Url -</p> <a :href="project.url" class=" text-gray-800 underline hover:text-rose-600">{{project.url}}</a>
+                    </div>
                 </div>
             </div>
             <div class=" text-right mr-5">
-                    <button class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
+                    <Link :href="route('project')" class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
                         View More Projects
-                    </button>
+                    </Link>
             </div>
         </div>
         <div class=" w-full  grid mt-10">
@@ -92,15 +100,15 @@
                  
              </div>
                 <div class=" text-right mr-5">
-                    <button class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
+                    <Link :href="route('blog')" class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
                         View More Story
-                    </button>
+                    </Link>
             </div>
         </div>
 
         <div class="  w-full grid mt-20">
              <h2 class=" text-4xl font-bold text-gray-900/90 ml-3  text-center isolate mt-10 "> What Can I Serve for You </h2>
-            <div class=" grid grid-cols-2 md:grid-cols-3 gap-4 mx-6 mb-20 mt-10">
+            <div class=" grid grid-cols-1 md:grid-cols-3 gap-4 mx-6 mb-20 mt-10">
                 <div class=" px-3 py-2 rounded-lg bg-white/40 hover:shadow-xl fill-teal-700 text-gray-800 hover:text-rose-900 hover:fill-red-600 transition duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="  w-44 mx-auto my-3 block drop-shadow-lg" viewBox="0 0 122.88 91.26"  xml:space="preserve">
                         <path d="M14.85 45.46h6.65l2.39 12.65 3.5-12.65h6.6l3.53 12.67 2.41-12.67h6.62l-5 22.68h-6.87L30.7 53.86l-3.95 14.28h-6.86l-5.04-22.68zM8.32 0h106.24c4.58 0 8.32 3.74 8.32 8.32v74.62c0 4.57-3.74 8.32-8.32 8.32H8.32C3.74 91.26 0 87.51 0 82.94V8.32C0 3.74 3.74 0 8.32 0zm109.65 23.29H5.29v60.46c0 .64.25 1.2.67 1.63.42.42.99.67 1.63.67h108.04c.64 0 1.2-.25 1.63-.67.43-.43.67-.99.67-1.63V23.29h.04zM106.64 9.35a4.11 4.11 0 1 1 0 8.22 4.11 4.11 0 0 1 0-8.22zm-27.84 0a4.11 4.11 0 1 1 0 8.22 4.11 4.11 0 0 1 0-8.22zm13.92 0a4.11 4.11 0 1 1 0 8.22 4.11 4.11 0 0 1 0-8.22zM78.3 45.46h6.65l2.39 12.65 3.5-12.65h6.6l3.53 12.67 2.41-12.67H110l-5 22.68h-6.87l-3.98-14.28-3.95 14.28h-6.86L78.3 45.46zm-31.72 0h6.65l2.39 12.65 3.5-12.65h6.6l3.53 12.67 2.41-12.67h6.62l-5 22.68h-6.87l-3.98-14.28-3.95 14.28h-6.86l-5.04-22.68z" style="fill-rule:evenodd;clip-rule:evenodd"/>
@@ -124,6 +132,9 @@
                </div>
 
             </div>
+            <h4 class="text-slate-900/70 font-semibold mt-2"> If You  Want to Discuss with Me, Come On Guy</h4>
+
+                <button class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
         </div>
 
           
@@ -140,6 +151,8 @@ import MailIcon from 'vue-material-design-icons/Email.vue'
 import GitIcon from 'vue-material-design-icons/Github.vue'
 import WebIcon from 'vue-material-design-icons/CodeLessThanOrEqual.vue'
 
+import {Link} from '@inertiajs/inertia-vue3'
+
 import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
     props: ['project' , 'tags', 'blog'],
@@ -149,7 +162,7 @@ export default {
         }
     },
     components:{
-        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout , WebIcon, GitIcon
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout , WebIcon, GitIcon, Link
     }
 }
 </script>

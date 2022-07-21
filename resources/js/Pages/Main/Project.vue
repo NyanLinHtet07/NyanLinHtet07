@@ -5,7 +5,7 @@
         <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2" v-for="project in projects.data" :key="project.id">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
-                      <img :src="`/upload/project/`+JSON.parse(project.image)[1]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
+                      <img :src="`/upload/project/`+JSON.parse(project.image)[0]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
                 </div>
                
 
@@ -25,9 +25,18 @@
                     <ul class=" mt-6 list-item px-6">
                         <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
-                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden">
+                    <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden mb-5">
                        {{ project.description.substring(0,200) +" ..."}}
                     </p>
+
+                    <div v-if="project.url == 'null'">
+                        
+                    </div>
+                    <div v-else class=" flex">
+                       <p class=" font-semibold mx-3"> Url -</p> <a :href="project.url" class=" text-gray-800 underline hover:text-rose-600">{{project.url}}</a>
+                    </div>
+
+                    
 
                     <div class=" text-right">
                         <Link :href="`/project/detail/`+project.id" class="px-3 py-2 rounded-full bg-white/60"> Detail </Link>

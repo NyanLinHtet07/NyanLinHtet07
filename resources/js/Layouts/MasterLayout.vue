@@ -12,23 +12,25 @@
                 <h2 class=" font-title font-extrabold title text-rose-700 subpixel-antialiased drop-shadow-xl">N</h2>
             </header>
             <div class=" ml-4 z-20">
-                    <Link :href="route('home')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                    <Link :href="route('home')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <HomeIcon/>  <p class="">Home</p>
                     </Link>
 
-                     <Link :href="route('blog')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
-                        <BookIcon />  <button class="">Blogs</button>
-                    </Link>
+                    
 
-                     <Link :href="route('project')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <Link :href="route('project')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <ProjectIcon />  <button class="">Projects</button>
                     </Link>
 
-                     <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
-                        <AboutIcon />  <button class="">About</button>
-                    </div>
+                     <Link :href="route('blog')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <BookIcon />  <button class="">Blogs</button>
+                    </Link>
 
-                     <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <Link :href="route('about')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <AboutIcon />  <button class="">About</button>
+                    </Link>
+
+                     <div class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <CommentIcon />  <button class="">Contact</button>
                     </div>
             </div> 
@@ -55,9 +57,9 @@
                             <BookIcon />  <p class="">Blogs</p>
                         </Link>
 
-                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <Link :href="route('project')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <ProjectIcon />  <button class="">Projects</button>
-                        </div>
+                        </Link>
 
                         <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <ServiceIcon />  <button class="">Services</button>
@@ -121,5 +123,14 @@ export default {
         border-top-right-radius: 20px;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .main-border{
+        border-top-left-radius: 120px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
     }
 </style>
