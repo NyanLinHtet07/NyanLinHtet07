@@ -26,13 +26,16 @@
                         <BookIcon />  <button class="">Blogs</button>
                     </Link>
 
-                     <Link :href="route('about')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <!-- <Link :href="route('about')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <AboutIcon />  <button class="">About</button>
-                    </Link>
+                    </Link> -->
+                    <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                            <ServiceIcon />  <button class="">Services</button>
+                        </div>
 
-                     <div class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                     <Link :href="route('contact')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                         <CommentIcon />  <button class="">Contact</button>
-                    </div>
+                    </Link>
             </div> 
             </nav>
             <div class=" md:hidden block w-10">
@@ -65,13 +68,13 @@
                             <ServiceIcon />  <button class="">Services</button>
                         </div>
 
-                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <!-- <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <AboutIcon />  <button class="">About</button>
-                        </div>
+                        </div> -->
 
-                        <div class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
+                        <Link :href="route('contact')" class=" bg-white/20 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
                             <CommentIcon />  <button class="">Contact</button>
-                        </div>
+                        </Link>
                     </div> 
                 </div>
             </div>

@@ -12,7 +12,7 @@
                     I'm just a software developer, who can use Laravel, Vue and Ionic. 
                 </h1>
 
-                <Link :href="route('about')" class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300">Who Am I </Link>
+                <a :href="route('about')" class=" px-3 py-2 font-title rounded-full font-semibold font-title bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300">Resume </a>
                 
             </div>
 
@@ -132,9 +132,12 @@
                </div>
 
             </div>
-            <h4 class="text-slate-900/70 font-semibold mt-2"> If You  Want to Discuss with Me, Come On Guy</h4>
+            <div class=" my-6">
+            
+            <h4 class="text-slate-900/90 font-semibold font-title text-2xl mt-2 text-center"> If You  Want to Discuss with Me, Come On Guy</h4>
 
-                <button class=" px-3 py-2 font-title rounded-full bg-white/60 backdrop-blur-md mt-3 text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
+                <button class=" px-3 py-2 font-title mx-auto my-6 block rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
+            </div>
         </div>
 
           

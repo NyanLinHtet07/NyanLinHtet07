@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Project;
-use App\Models\Tag;
-use App\Models\Blog;
 
-class HomeController extends Controller
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,25 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $project = Project::orderBy('id', 'desc') -> first();
-        $blog = Blog::orderBy('id', 'desc') -> first();
-        $tags = Tag::all();
-        return Inertia::render('Welcome', [
-            'project' => $project,
-            'blog' => $blog,
-            'tags' => $tags,
-        ]);
-    }
-
-    public function about(){
-        // $file = public_path().'/pdf/resume.pdf';
-
-        $headers = [
-            'Content-Type' => 'application/pdf',
-        ];
-
-     return response()->download(public_path().'/pdf/resume.pdf', $headers);
-        //return Inertia::render('Main/AboutMe');
+        return Inertia::render('Main/Contact');
     }
 
     /**
