@@ -17,10 +17,13 @@
             </div>
 
             <div class=" flex justify-center mt-8">
-              <GitIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-gray-600/90 rounded-full hover:shadow-md hover:shadow-gray-500 transition duration-150"/> 
-              <MailIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-rose-600/90 rounded-full  hover:shadow-md hover:shadow-red-300 transition duration-150"/>  
-              <FacebookIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-blue-600 rounded-full  hover:shadow-md hover:shadow-blue-500 transition duration-150"/> 
-              <LinkedInIcon class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-sky-600 rounded-full  hover:shadow-md hover:shadow-sky-500 transition duration-150"/> 
+             <a href="tel:+959250015864"  class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-teal-600/90 rounded-full  hover:shadow-md hover:shadow-teal-300 transition duration-150"> <PhoneIcon/> </a>
+             <a href="https://github.com/NyanLinHtet07" class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-gray-600/90 rounded-full hover:shadow-md hover:shadow-gray-500 transition duration-150">
+              <GitIcon/>
+            </a>
+             <a href="mailto:nyanlinhtet206@gmail.com"  class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-rose-600/90 rounded-full  hover:shadow-md hover:shadow-red-300 transition duration-150"><MailIcon/> </a>  
+              <a href="https://www.facebook.com/nyanlinhtet20/"  class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-blue-600 rounded-full  hover:shadow-md hover:shadow-blue-500 transition duration-150"> <FacebookIcon/></a>
+             <a href="https://www.linkedin.com/in/n-l-htet/" class=" p-3 mx-2 bg-white/50 backdrop-blur-sm drop-shadow-lg text-sky-600 rounded-full  hover:shadow-md hover:shadow-sky-500 transition duration-150"> <LinkedInIcon/> </a>
             </div>
             
         </div>

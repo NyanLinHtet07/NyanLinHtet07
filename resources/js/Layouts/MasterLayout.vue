@@ -1,5 +1,5 @@
 <template>
-    <div class=" flex w-screen h-screen relative  bg-gradient-to-t from-emerald-600 to-sky-300">
+    <div class=" flex w-screen h-screen relative  bg-gradient-to-t from-sky-400 to-sky-100">
 
 <!--        
         <div class=" absolute bottom-0 left-8 mix-blend-multiply animate-blob animation-delay-2000 filter blur-xl rounded-full bg-slate-300 w-96 h-96"></div>
@@ -38,8 +38,8 @@
                     </Link>
             </div> 
             </nav>
-            <div class=" md:hidden block w-10">
-                <button @click=" showSidebar = !showSidebar" v-if="! showSidebar" class="bg-white/60 ml-2 z-40 mt-6 mb-4 px-2 py-1 rounded-lg text-gray-700 hover:text-rose-600 delay-200"> <MenuIcon /> </button>
+            <div class=" md:hidden block w-6">
+                <button @click=" showSidebar = !showSidebar" v-if="! showSidebar" class="bg-white/10 drop-shadow-md ml-2 z-40 mt-6 mb-4 px-2 py-1 rounded-lg text-gray-700 hover:text-rose-600 delay-200"> <MenuIcon /> </button>
                  
                  
                  <div class=" block md:hidden h-screen w-48 max-h-full bg-white bg-opacity-90 backdrop-blur-lg border-b border-gray-100 px-3 py-2 rounded-r-3xl  space-y-6

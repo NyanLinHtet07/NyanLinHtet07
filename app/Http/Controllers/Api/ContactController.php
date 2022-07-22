@@ -15,9 +15,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        // $contact = Contact::all();
+         $contact = Contact::all(); 
 
-        //  return response()->json('contact' => $contact);
+          return response()->json(['contact' => $contact]);
     }
 
     /**
@@ -28,7 +28,16 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'description' => 'required',
+        ]);
+
+        $contact = Project::create( $request -> only('name','email', 'phone', 'description'));
+
+        return response() -> json(['message' => 'New Record Added']);
     }
 
     /**
@@ -62,6 +71,9 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact -> delete();
+
+        return $contact;
     }
 }
