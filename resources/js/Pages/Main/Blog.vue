@@ -21,7 +21,7 @@
                 </p> -->
 
                 <p class=" mt-6 mx-1 mb-4 text-justify whitespace-normal">
-                      {{blog.text}}
+                      {{blog.text}} 
                       <!-- <small @click="readMore"> More</small> -->
                 </p>
 
@@ -48,8 +48,22 @@ export default {
     },
     data() {
         return {
-            more: false,
+            // more: false,
         }
+    },
+
+    methods: {
+        addData(){
+            //console.log(this.blogs.data)
+            this.blogs.data.map( b => {
+                //console.log(b)
+              ({...b , more:false});
+            })
+        }
+    },
+
+    created() {
+        this.addData();
     },
 
    

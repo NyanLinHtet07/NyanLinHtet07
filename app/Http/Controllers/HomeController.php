@@ -30,14 +30,12 @@ class HomeController extends Controller
     public function about(){
          $file = public_path().'/pdf/resume.pdf';  
 
- 
-
-        // $headers = [
-        //     'Content-Type' => 'application/pdf',
-        // ];
-
      return response()->download($file);
     
+    }
+
+    public function service(){
+        return Inertia::render('Main/Service');
     }
 
     /**
