@@ -1,7 +1,7 @@
 <template>
     <MasterLayout>
          <div class=" px-3 py-4">
-        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8"> Project Detail </h1>
+        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8 text-gray-900/90"> Project Detail </h1>
         <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->

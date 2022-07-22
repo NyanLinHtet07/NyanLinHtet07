@@ -1,7 +1,7 @@
 <template>
     <MasterLayout>
     <div class=" px-3 py-4">
-        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8"> Projects </h1>
+        <h1 class=" font-title text-gray-900/90 text-3xl font-bold p-6 text-right mt-8"> Projects </h1>
         <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2" v-for="project in projects.data" :key="project.id">
                 <div>
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
@@ -39,7 +39,8 @@
                     
 
                     <div class=" text-right">
-                        <Link :href="`/project/detail/`+project.id" class="px-3 py-2 rounded-full bg-white/60"> Detail </Link>
+                        <Link :href="`/project/detail/`+project.id"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">
+                         Detail </Link>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@
                     I'm just a software developer, who can use Laravel, Vue and Ionic. 
                 </h1>
 
-                <a :href="route('about')" class=" px-3 py-2 font-title rounded-full font-semibold font-title bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300">Resume </a>
+                <a :href="route('about')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">Resume </a>
                 
             </div>
 
@@ -76,8 +76,8 @@
                     </div>
                 </div>
             </div>
-            <div class=" text-right mr-5">
-                    <Link :href="route('project')" class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
+            <div class=" text-right mr-5 mt-4">
+                    <Link :href="route('project')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">
                         View More Projects
                     </Link>
             </div>
@@ -103,7 +103,7 @@
                  
              </div>
                 <div class=" text-right mr-5">
-                    <Link :href="route('blog')" class=" px-2 py-1 rounded-full bg-white/40 backdrop-blur-md backdrop-filter">
+                    <Link :href="route('blog')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">
                         View More Story
                     </Link>
             </div>
@@ -137,9 +137,40 @@
             </div>
             <div class=" my-6">
             
-            <h4 class="text-slate-900/90 font-semibold font-title text-2xl mt-2 text-center"> If You  Want to Discuss with Me, Come On Guy</h4>
+           
+               <div class=" grid grid-cols-1 md:grid-cols-2 gap-2">
+                <img src="/assets/metting.png" class=" drop-shadow-lg mx-auto block" alt="" srcset="" />
+                <div class=" text-left">
+                     <h4 class="text-slate-900/90 font-semibold font-title text-2xl mt-2 mb-10 text-center"> If You  Want to Discuss with Me, Come On Guy</h4>
+                     
+                     <div class=" grid grid-cols-3 gap-2 mb-4 mx-2">
+                       <div class=" flex">
+                            <PhoneIcon class=" text-teal-600/90 drop-shadow-md mx-2"/> 
+                            <span class=" font-medium font-title"> Call Me </span>
+                       </div>
+                        <a href="tel:+959250015864" class=" ml-8">09250015864</a>
+                     </div>
 
-                <button class=" px-3 py-2 font-title mx-auto my-6 block rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 transition duration-300"> Talk With Me </button>
+                     <div class=" flex justify-start w-4/5 mb-10 mx-2">
+                       <div class=" flex">
+                            <MailIcon class=" text-rose-600/70 drop-shadow-md mx-2"/> 
+                            <span class=" font-medium font-title"> Mail Me </span>
+                       </div>
+                        <a href="mailto:nyanlinhtet206@gmail.com" class=" ml-8">nyanlinhtet206@gmail.com</a>
+                     </div>
+                     
+                     <div class=" text-center text-3xl font-title font-bold">
+                        <h2 class="text-gray-900/90"> OR </h2>
+                     </div>
+                     <div class=" text-center mt-8 mb-6">
+                          <Link :href="route('contact')" class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300"> Message Me </Link>
+                     </div>
+                   
+                
+                </div>
+               </div>
+                
+               
             </div>
         </div>
 

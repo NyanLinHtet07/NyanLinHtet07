@@ -35,7 +35,7 @@ class ContactController extends Controller
             'description' => 'required',
         ]);
 
-        $contact = Project::create( $request -> only('name','email', 'phone', 'description'));
+        $contact = Contact::create( $request -> only('name','email', 'phone', 'description'));
 
         return response() -> json(['message' => 'New Record Added']);
     }

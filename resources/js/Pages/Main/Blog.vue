@@ -1,7 +1,7 @@
 <template>
     <MasterLayout>
     <div class=" px-3 py-4">
-        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8"> Blogs </h1>
+        <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8 text-gray-900/90"> Blogs </h1>
          <div class=" mx-5 px-3 py-4 my-8 rounded-3xl bg-white/10  md:bg-white/60 z-10 h-fit" v-for=" blog in blogs.data" :key="blog.id">
                 <h1 class=" text-xl my-7 ml-4 font-semibold">  {{blog.title}} </h1>
                 <div class=" flex justify-start">
