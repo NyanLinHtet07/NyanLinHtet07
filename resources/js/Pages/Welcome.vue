@@ -159,10 +159,10 @@
                         <a href="mailto:nyanlinhtet206@gmail.com" class=" ml-8">nyanlinhtet206@gmail.com</a>
                      </div>
                      
-                     <div class=" text-center text-3xl font-title font-bold">
+                     <div class=" text-left mx-4 text-3xl font-title font-bold">
                         <h2 class="text-gray-900/90"> OR </h2>
                      </div>
-                     <div class=" text-center mt-8 mb-6">
+                     <div class=" text-left mx-4 mt-8 mb-6 px-3 py-2 bg-white/10">
                           <Link :href="route('contact')" class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300"> Message Me </Link>
                      </div>
                    

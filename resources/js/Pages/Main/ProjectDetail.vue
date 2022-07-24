@@ -3,10 +3,17 @@
          <div class=" px-3 py-4">
         <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8 text-gray-900/90"> Project Detail </h1>
         <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
-                <div>
+                 <swiper
+                    :slides-per-view="3"
+                    :space-between="50"
+                    @swiper="onSwiper"
+                    @slideChange="onSlideChange"
+                >
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
-                      <img :src="`/upload/project/`+JSON.parse(project.image)[0]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
-                </div>
+                     <swiper-slide v-for="(i,index) in JSON.parse(project.image)" :key="index"> 
+                        <img  :src="'/upload/project/'+i" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/> 
+                    </swiper-slide>
+                 </swiper>
                
 
                 <div class=" md:px-7 md:py-3 mx-6 my-3 h-fit px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
@@ -45,12 +52,27 @@
     </MasterLayout>
 </template>
 <script>
-
+import { Swiper, SwiperSlide } from 'swiper/vue';
 import MasterLayout from '../../Layouts/MasterLayout.vue'
+
+import 'swiper/css';
 export default {
     props:['project', 'tags'],
     components:{
-        MasterLayout
+        MasterLayout, Swiper, SwiperSlide
+    },
+
+    setup() {
+         const onSwiper = (swiper) => {
+            console.log(swiper);
+        };
+        const onSlideChange = () => {
+            console.log('slide change');
+        };
+        return {
+            onSwiper,
+            onSlideChange,
+        };
     }
 }
 </script>
