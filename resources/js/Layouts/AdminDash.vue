@@ -57,6 +57,11 @@ const showSidebar = ref(false);
                             Blogs
                         </BreezeResponsiveNavLink>
                     </div>
+                     <div class="px-2 space-y-1">
+                        <BreezeResponsiveNavLink :href="route('message.index')" :active="route().current('message.index')">
+                            Messages
+                        </BreezeResponsiveNavLink>
+                    </div>
 
                     <!-- Responsive Settings Options -->
                     <div class="pt-3 pb-1 border-t border-gray-200">
@@ -74,7 +79,7 @@ const showSidebar = ref(false);
            
 
 
-           <div class=" px-3 flex-1 min-h-screen">
+           <div class=" px-3 flex-1 min-h-screen overflow-y-auto">
                  <!-- Page Heading -->
             <header class="bg-white bg-opacity-50 drop-shadow-xl backdrop-blur-md shadow rounded-2xl mt-3" v-if="$slots.header">
                 <div class=" flex justify-between max-w-7xl mx-auto py-3 px-2 sm:px-6 lg:px-8">

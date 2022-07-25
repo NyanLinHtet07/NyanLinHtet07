@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogMainController;
 use App\Http\Controllers\ProjectMainController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', [HomeController::class,'index']) -> name('home');
 Route::get('/blogs',[BlogMainController::class, 'index']) -> name('blog');
@@ -49,6 +50,9 @@ Route::prefix('admin')->middleware('auth', 'verified')->group(function () {
     Route::post('/project', [ProjectController::class, 'store']);
     Route::put('/project/{id}', [ProjectController::class, 'update']);
     Route::delete('/project/{id}', [ProjectController::class, 'destroy']);
+
+    //for message
+    Route::get('/message', [AdminController::class, 'message']) -> name('message.index');
  
 
   

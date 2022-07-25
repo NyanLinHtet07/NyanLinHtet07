@@ -9,7 +9,7 @@
        
           <nav class=" w-44 mt-10 hidden md:block">
             <header class=" text-center">
-                <h2 class=" font-title font-extrabold title text-rose-700 subpixel-antialiased drop-shadow-xl">N</h2>
+                <h2 class=" font-title font-extrabold title text-rose-800 subpixel-antialiased drop-shadow-xl">N</h2>
             </header>
             <div class=" ml-4 z-20">
                     <Link :href="route('home')" class=" bg-white/10 rounded-xl font-black text-gray-700 hover:text-rose-600 active:text-rose-700 flex px-4 hover:px-3 transition delay-75 w-32 my-5 py-3 justify-between border-spacing-1 border-gray-200/30 border-b-2">
@@ -118,8 +118,8 @@ export default {
 
 <style>
 .title{
-    font-size: 80px;
-    text-decoration: wavy;
+    font-size: 90px;
+    
 }
     .main-border{
         border-top-left-radius: 180px;

@@ -41,10 +41,17 @@
             <h3  class=" text-4xl font-bold text-gray-900/90 ml-3 mt-6 mb-3 text-center isolate "> Project</h3>
 
             <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
-                <div>
+                <swiper
+                    :effect="'cards'"
+                    :grabCursor="true"
+                    :modules="modules"
+                    class="mySwiper mt-14"
+                >
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
-                      <img :src="`/upload/project/`+JSON.parse(project.image)[0]" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/>
-                </div>
+                     <swiper-slide v-for="(i,index) in JSON.parse(project.image)" :key="index"> 
+                        <img  :src="'/upload/project/'+i" alt="" srcset="" class=" w-fit"/> 
+                    </swiper-slide>
+                 </swiper>
                
 
                 <div class=" md:px-7 md:py-3 mx-6 md:my-3 h-fit  bg-white/10 hover:bg-rose-100/30 px-2 transition delay-200 rounded-lg backdrop-blur-lg backdrop-filter">
@@ -78,7 +85,7 @@
             </div>
             <div class=" text-right mr-5 mt-4">
                     <Link :href="route('project')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">
-                        View More Projects
+                         More Projects
                     </Link>
             </div>
         </div>
@@ -104,7 +111,7 @@
              </div>
                 <div class=" text-right mr-5">
                     <Link :href="route('blog')"  class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300">
-                        View More Story
+                         More Story
                     </Link>
             </div>
         </div>
@@ -143,28 +150,33 @@
                 <div class=" text-left">
                      <h4 class="text-slate-900/90 font-semibold font-title text-2xl mt-2 mb-10 text-center"> If You  Want to Discuss with Me, Come On Guy</h4>
                      
-                     <div class=" grid grid-cols-3 gap-2 mb-4 mx-2">
+                     <div class=" flex justify-between w-4/5 mb-10 mx-2">
                        <div class=" flex">
                             <PhoneIcon class=" text-teal-600/90 drop-shadow-md mx-2"/> 
-                            <span class=" font-medium font-title"> Call Me </span>
+                            <span class=" font-semibold font-title text-xs md:text-sm"> Call Me </span>
                        </div>
-                        <a href="tel:+959250015864" class=" ml-8">09250015864</a>
+                        <a href="tel:+959250015864" class=" ml-8 font-semibold text-xs md:text-sm">09250015864</a>
                      </div>
 
-                     <div class=" flex justify-start w-4/5 mb-10 mx-2">
+                     <div class=" flex justify-between w-4/5 mb-10 mx-2">
                        <div class=" flex">
                             <MailIcon class=" text-rose-600/70 drop-shadow-md mx-2"/> 
-                            <span class=" font-medium font-title"> Mail Me </span>
+                            <span class="font-title font-semibold text-xs md:text-sm"> Mail Me </span>
                        </div>
-                        <a href="mailto:nyanlinhtet206@gmail.com" class=" ml-8">nyanlinhtet206@gmail.com</a>
+                        <a href="mailto:nyanlinhtet206@gmail.com" class=" ml-8 font-semibold text-xs md:text-sm">nyanlinhtet206@gmail.com</a>
                      </div>
                      
-                     <div class=" text-left mx-4 text-3xl font-title font-bold">
-                        <h2 class="text-gray-900/90"> OR </h2>
+                     <div class=" text-left mx-4  font-title font-bold">
+                        <h2 class="text-gray-900/90 text-2xl"> OR </h2>
                      </div>
-                     <div class=" text-left mx-4 mt-8 mb-6 px-3 py-2 bg-white/10">
-                          <Link :href="route('contact')" class="px-3 py-2 my-5 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300"> Message Me </Link>
+
+                    <div class=" flex justify-start w-4/5 mb-10 mx-2 mt-5">
+                       
+                           <p class=" font-semibold font-title mt-2 mr-10 ml-6 text-xs md:text-sm"> You can also </p>
+                            <Link :href="route('contact')" class=" text-xs md:text-sm px-3 py-2 font-title font-bold  rounded-full bg-white/60 backdrop-blur-md  text-gray-900/90 shadow-lg hover:shadow-xl hover:bg-white/70 hover:text-rose-600 transition duration-300"> Message Me </Link>
+                      
                      </div>
+                    
                    
                 
                 </div>
@@ -190,21 +202,60 @@ import WebIcon from 'vue-material-design-icons/CodeLessThanOrEqual.vue'
 
 import {Link} from '@inertiajs/inertia-vue3'
 
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/effect-cards";
+
+// import required modules
+import { EffectCards } from "swiper";
+
 import MasterLayout from '@/Layouts/MasterLayout.vue';
 export default {
     props: ['project' , 'tags', 'blog'],
-    data() {
-        return {
-            text: ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam hic reprehenderit fugit atque cupiditate. Esse error ipsum deserunt Odio itaque minus voluptates nostrum doloribus voluptatem corporis? Minima at minus officiis',
-        }
-    },
+   
+      setup() {
+    return {
+      modules: [EffectCards],
+    };
+     },
     components:{
-        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout , WebIcon, GitIcon, Link
+        FacebookIcon, LinkedInIcon , PhoneIcon, MailIcon , MasterLayout , WebIcon, GitIcon, Link,
+        Swiper,SwiperSlide,
     }
 }
 </script>
 
 <style scoped>
+
+ .swiper {
+  width: 400px;
+  min-width: auto;
+  height: 380px;
+  min-height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .swiper {
+  width: 250px;
+  min-width: auto;
+  height: 180px;
+  min-height: auto;
+}
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
 
 /* .textB{
     border-top-left-radius: 20px;

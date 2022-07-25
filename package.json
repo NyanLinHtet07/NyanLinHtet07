@@ -20,8 +20,10 @@
         "vue": "^3.2.31"
     },
     "dependencies": {
+        "chart.js": "^3.8.2",
         "laravel-vue-pagination": "^3.0.0",
         "swiper": "^8.3.1",
+        "vue-chartjs": "^4.1.1",
         "vue-material-design-icons": "^5.0.0"
     }
 }
