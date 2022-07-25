@@ -4,14 +4,14 @@
         <h1 class=" font-title text-3xl font-bold p-6 text-right mt-8 text-gray-900/90"> Project Detail </h1>
         <div class=" grid grid-cols-1 gap-2 md:grid-cols-l lg:grid-cols-2">
                  <swiper
-                    :slides-per-view="3"
-                    :space-between="50"
-                    @swiper="onSwiper"
-                    @slideChange="onSlideChange"
+                    :effect="'cards'"
+                    :grabCursor="true"
+                    :modules="modules"
+                    class="mySwiper"
                 >
                      <!-- <img :src="`/upload/project/`+JSON.parse(project.image)[2]" alt="" srcset="" class=" mx-2 mt-20 block  px-3 py-4  w-auto  rounded-lg bg-white"/> -->
                      <swiper-slide v-for="(i,index) in JSON.parse(project.image)" :key="index"> 
-                        <img  :src="'/upload/project/'+i" alt="" srcset="" class=" mx-auto mt-10 block  px-3 py-4  w-auto h-2/3  rounded-lg bg-white"/> 
+                        <img  :src="'/upload/project/'+i" alt="" srcset="" class=" w-fit"/> 
                     </swiper-slide>
                  </swiper>
                
@@ -52,27 +52,49 @@
     </MasterLayout>
 </template>
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue';
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+// Import Swiper styles
+import "swiper/css";
+
+import "swiper/css/effect-cards";
+
+// import required modules
+import { EffectCards } from "swiper";
+
 import MasterLayout from '../../Layouts/MasterLayout.vue'
 
-import 'swiper/css';
 export default {
     props:['project', 'tags'],
     components:{
-        MasterLayout, Swiper, SwiperSlide
+        MasterLayout,  Swiper,
+         SwiperSlide,
     },
 
-    setup() {
-         const onSwiper = (swiper) => {
-            console.log(swiper);
-        };
-        const onSlideChange = () => {
-            console.log('slide change');
-        };
-        return {
-            onSwiper,
-            onSlideChange,
-        };
-    }
+     setup() {
+    return {
+      modules: [EffectCards],
+    };
+  },
 }
 </script>
+
+<style scoped>
+    .swiper {
+  width: 400px;
+  min-width: auto;
+  height: 380px;
+  min-height: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+</style>
