@@ -18,7 +18,7 @@
         </div>
 
         
-        <table class="table-auto border-collapse:separate rounded-xl border-0 border-accent w-5/6 bg-white bg-opacity-40 backdrop-blur-md mx-auto drop-shadow-sm shadow-2xl shadow-sky-200">
+        <table class="table-auto border-collapse:separate rounded-xl my-3 border-0 border-accent w-5/6 bg-white bg-opacity-40 backdrop-blur-md mx-auto drop-shadow-sm shadow-2xl shadow-sky-200">
             <thead class=" border-y border-gray-300/30">
                 <tr>
                 <th class=" py-2 font-thin">No</th>

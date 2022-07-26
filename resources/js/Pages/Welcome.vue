@@ -71,7 +71,7 @@
                         <li class=" my-2 text-sm font-medium list-disc" v-for="(l , index) in JSON.parse(project.list)" :key="index"> {{ l.name }} </li>
                     </ul>
                     <p class=" mt-6 w-3/4 mx-auto text-justify  whitespace-normal md:block hidden mb-5">
-                       {{ project.description.substring(0,400) +" ..."}}
+                       {{ project.description.substring(0,300) +" ..."}}
                     </p>
 
                     
